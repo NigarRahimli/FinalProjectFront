@@ -1,4 +1,4 @@
-// @import "./scss-utils/variables";
+@import "./utils/variables";
 // @import "./scss-utils/mixins";
 
 @import "./base/reset";
@@ -7,8 +7,7 @@
 // @import "./animations/come-from";
 // @import "./animations/come-with";
 
-// @import "./components/buttons";
-
+@import "./components/buttons";
 
 @import "./layout/footer";
 @import "./layout/header";
