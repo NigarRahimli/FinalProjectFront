@@ -139,7 +139,7 @@ table {
   border-spacing: 0;
 }
 
-.heading-first {
+.heading-first-mono {
   color: #fff;
   font-family: "Space Mono", monospace;
   font-size: 67px;
@@ -148,7 +148,7 @@ table {
   text-transform: capitalize;
 }
 
-.heading-second {
+.heading-second-mono {
   color: #fff;
   font-family: "Space Mono", monospace;
   font-size: 51px;
@@ -157,7 +157,7 @@ table {
   text-transform: capitalize;
 }
 
-.heading-third {
+.heading-third-mono {
   color: #fff;
   font-family: "Space Mono", monospace;
   font-size: 38px;
@@ -166,7 +166,7 @@ table {
   text-transform: capitalize;
 }
 
-.heading-fourth {
+.heading-fourth-mono {
   color: #fff;
   font-family: "Space Mono", monospace;
   font-size: 28px;
@@ -175,7 +175,7 @@ table {
   text-transform: capitalize;
 }
 
-.heading-fifth {
+.heading-fifth-mono {
   color: #fff;
   font-family: "Space Mono", monospace;
   font-size: 22px;
@@ -184,7 +184,7 @@ table {
   text-transform: capitalize;
 }
 
-.base {
+.base-mono {
   color: #fff;
   font-family: "Space Mono", monospace;
   font-size: 16px;
@@ -193,9 +193,72 @@ table {
   text-transform: capitalize;
 }
 
-.caption {
+.caption-mono {
   color: #fff;
   font-family: "Space Mono", monospace;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 110%;
+  text-transform: capitalize;
+}
+
+.heading-first-work {
+  color: #fff;
+  font-family: "Work Sans", sans-serif;
+  font-size: 67px;
+  font-weight: 600;
+  line-height: 110%;
+  text-transform: capitalize;
+}
+
+.heading-second-work {
+  color: #fff;
+  font-family: "Work Sans", sans-serif;
+  font-size: 51px;
+  font-weight: 600;
+  line-height: 110%;
+  text-transform: capitalize;
+}
+
+.heading-third-work {
+  color: #fff;
+  font-family: "Work Sans", sans-serif;
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 120%;
+  text-transform: capitalize;
+}
+
+.heading-fourth-work {
+  color: #fff;
+  font-family: "Work Sans", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 140%;
+  text-transform: capitalize;
+}
+
+.heading-fifth-work {
+  color: #fff;
+  font-family: "Work Sans", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 140%;
+  text-transform: capitalize;
+}
+
+.base-work {
+  color: #fff;
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 140%;
+  text-transform: capitalize;
+}
+
+.caption-work {
+  color: #fff;
+  font-family: "Work Sans", sans-serif;
   font-size: 12px;
   font-weight: 400;
   line-height: 110%;
