@@ -137,4 +137,67 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+.heading-first {
+  color: #fff;
+  font-family: "Space Mono", monospace;
+  font-size: 67px;
+  font-weight: 700;
+  line-height: 110%;
+  text-transform: capitalize;
+}
+
+.heading-second {
+  color: #fff;
+  font-family: "Space Mono", monospace;
+  font-size: 51px;
+  font-weight: 700;
+  line-height: 110%;
+  text-transform: capitalize;
+}
+
+.heading-third {
+  color: #fff;
+  font-family: "Space Mono", monospace;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 120%;
+  text-transform: capitalize;
+}
+
+.heading-fourth {
+  color: #fff;
+  font-family: "Space Mono", monospace;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 140%;
+  text-transform: capitalize;
+}
+
+.heading-fifth {
+  color: #fff;
+  font-family: "Space Mono", monospace;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 160%;
+  text-transform: capitalize;
+}
+
+.base {
+  color: #fff;
+  font-family: "Space Mono", monospace;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 140%;
+  text-transform: capitalize;
+}
+
+.caption {
+  color: #fff;
+  font-family: "Space Mono", monospace;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 110%;
+  text-transform: capitalize;
 }/*# sourceMappingURL=main.css.map */

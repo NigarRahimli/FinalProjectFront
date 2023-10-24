@@ -1,1 +1,31 @@
 //Space mono
+// $font-family: normal,
+// $font-size:22px,
+// $font-weight,
+// $line-height: normal,
+// $letter-spacing: normal,
+// $color:$--White
+.heading-first{
+    @include text-formatter($--mono,67px,700,110%)
+}
+.heading-second{
+    @include text-formatter($--mono,51px,700,110%)
+}
+.heading-third{
+    @include text-formatter($--mono,38px,700,120%)
+}
+.heading-fourth{
+    @include text-formatter($--mono,28px,700,140%)
+
+}
+.heading-fifth{
+    @include text-formatter($--mono,22px,700,160%)
+}
+
+.base{
+    @include text-formatter($--mono,16px,400,140%)
+
+}
+.caption{
+    @include text-formatter($--mono,12px,400,110%)
+}
