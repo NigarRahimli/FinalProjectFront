@@ -139,6 +139,78 @@ table {
   border-spacing: 0;
 }
 
+.primary {
+  color: #fff;
+  font-family: "Work Sans", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 140%;
+  text-transform: capitalize;
+  display: inline-flex;
+  height: 72px;
+  padding: 0px 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #a259ff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid #a259ff;
+}
+.primary:hover {
+  transform: scale(0.95);
+}
+
+.secondary {
+  color: #fff;
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 140%;
+  text-transform: capitalize;
+  display: inline-flex;
+  height: 60px;
+  padding: 0px 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #a259ff;
+  transition: all 0.3s ease;
+  border: 2px solid #a259ff;
+  cursor: pointer;
+}
+.secondary:hover {
+  transform: scale(0.95);
+}
+
+.tertiary {
+  color: #fff;
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 140%;
+  text-transform: capitalize;
+  display: inline-flex;
+  height: 46px;
+  padding: 0px 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #a259ff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid #a259ff;
+}
+.tertiary:hover {
+  transform: scale(0.95);
+}
+
 .heading-first-mono {
   color: #fff;
   font-family: "Space Mono", monospace;

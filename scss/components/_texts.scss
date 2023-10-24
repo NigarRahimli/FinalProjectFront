@@ -24,23 +24,23 @@
 //Work sans
 
 .heading-first-work {
-    @include text-formatter($--work, 67px, 600, 110%);
-  }
-  .heading-second-work {
-    @include text-formatter($--work, 51px, 600, 110%);
-  }
-  .heading-third-work {
-    @include text-formatter($--work, 38px, 600, 120%);
-  }
-  .heading-fourth-work {
-    @include text-formatter($--work, 28px, 600, 140%);
-  }
-  .heading-fifth-work {
-    @include text-formatter($--work, 22px, 600, 140%);
-  }
-  .base-work {
-    @include text-formatter($--work, 16px, 400, 140%);
-  }
-  .caption-work{
-    @include text-formatter($--work, 12px, 400, 110%);
-  }
+  @include text-formatter($--work, 67px, 600, 110%);
+}
+.heading-second-work {
+  @include text-formatter($--work, 51px, 600, 110%);
+}
+.heading-third-work {
+  @include text-formatter($--work, 38px, 600, 120%);
+}
+.heading-fourth-work {
+  @include text-formatter($--work, 28px, 600, 140%);
+}
+.heading-fifth-work {
+  @include text-formatter($--work, 22px, 600, 140%);
+}
+.base-work {
+  @include text-formatter($--work, 16px, 400, 140%);
+}
+.caption-work {
+  @include text-formatter($--work, 12px, 400, 110%);
+}
