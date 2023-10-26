@@ -2,40 +2,82 @@ header {
   padding: 0 50px;
   margin: 0 auto;
   background-color: $--Background;
-  .nav-container{
+  @include for-size(mobile) {
+    padding: 0 30px;
+  }
+  .nav-container {
     padding: 20px 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    @include for-size(tablet) {
+      padding: 15px 0;
+    }
   }
   .logo {
     display: flex;
     align-items: center;
     column-gap: 12px;
+    @include for-size(tablet) {
+      column-gap: 9px;
+    }
+    &__img-name {
+      margin-top: 8px;
+      height: 20px;
+      width: 200px;
+      @include for-size(tablet) {
+        margin-top: 2px;
+        width: 149.56px;
+        height: 14.85px;
+      }
+    }
+    &__img-icon {
+      @include for-size(tablet) {
+        width: 24px;
+      height: 24px;
+      }
+    }
   }
   .nav-menu {
     display: flex;
     align-items: center;
-    @include text-formatter($--work,16px, 600, 140%);
-    &__list{
+    @include text-formatter($--work, 16px, 600, 140%, none);
+  
+    &__burger {
+      width: 24px;
+      height: 24px;
+      display: none;
+      @include for-size(tablet) {
+        display: initial;
+      }
+    }
+    ul > li {
+      transition: all 0.3s ease;
+      cursor: pointer;
+      &:hover {
+        transform: scale(0.95);
+      }
+      a {
+        text-decoration: none;
+        color: $--Text;
+      }
+    }
+    &__list {
       display: flex;
       align-items: center;
-    }
-    ul >li a{
-      text-decoration: none;
-      color: $--Text;
-    } 
-    &__list{
-      &__sign{
+      @include for-size(tablet) {
+        display: none;
+      }
+      &__sign {
         @include button-formatter(60px, 0 30px);
-        @include text-formatter($--work,16px, 600, 140%);
-        img{
+        @include text-formatter($--work, 16px, 600, 140%);
+        img {
           width: 20px;
           height: 20px;
         }
       }
-      &__item{
+      &__item {
         padding: 0 20px;
-
       }
     }
   }

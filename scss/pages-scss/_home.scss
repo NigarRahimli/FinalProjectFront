@@ -1,49 +1,136 @@
-.container{
-    @include container(1050px);
+.container {
+  @include container(1050px);
+  @include for-size(tablet) {
+    @include container(690px);
+  }
+  @include for-size(mobile) {
+    @include container(315px);
+  }
 }
-#hero{
-    background-color: $--Background;
-    padding: 80px 0;
-    img{
-        width: 510px;
-        height: 510px;
-    }
-    .hero-container{
-        display: flex;
-        justify-content: space-between;
-        column-gap: 30px;
-        h1{
-            width: 510px;
-        }
-        .hero-content{
-            &__text{
-                padding-top: 20px;
-                padding-bottom: 30px;
-            }
-            a{
-                text-decoration: none;
-            }
-            &__text{
-                @include text-formatter($--work, 22px, 400, 160%);
-            }
-            img{
-                width: 20px;
-                height: 20px;
-            }
-            &__infos{
-                display: flex;
-                column-gap: 30px;
-                align-items: center;
-                justify-content: space-between;
-            }
+#hero {
+  background-color: $--Background;
+  padding: 80px 0;
+  @include for-size(mobile) {
+    padding: 40px 0;
+  }
+  .hero-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 0px;
+    @include for-size(mobile) {
+        grid-template-columns: 1fr;
+        grid-row-gap: 40px;
+      }
+    img {
+      grid-area: 1 / 2 / 3 / 3;
+      @include for-size(mobile) {
+         grid-area: 2 / 1 / 3 / 2;
 
-            &__info{
-                padding-top: 30px;
-            
-        &__text{
-                
-                @include text-formatter($--work, 24px, 400, 160%);
-            }}
-        }
+      }
+      width: 510px;
+      height: 510px;
+      @include for-size(tablet) {
+        width: 330px;
+        height: 330px;
+      }
+      @include for-size(mobile) {
+        width: 315px;
+        height: 315px;
+      }
     }
+    @include for-size(tablet) {
+      flex-direction: column;
+    }
+    column-gap: 30px;
+    h1 {
+      width: 510px;
+      @include for-size(tablet) {
+        width: 330px;
+      }
+      @include for-size(mobile) {
+        width: 315px;
+      }
+    }
+    .hero-content {
+      grid-area: 1 / 1 / 2 / 2;
+      @include for-size(mobile) {
+        grid-area: 1 / 1 / 2 / 2
+      }
+      &__h1 {
+        @include for-size(tablet) {
+          @include text-formatter($--work, 38px, 600, 120%);
+        }
+        @include for-size(mobile) {
+            @include text-formatter($--work, 28px, 600, 140%);
+          }
+      }
+
+      &__text {
+        padding-top: 20px;
+        padding-bottom: 30px;
+        @include for-size(tablet) {
+          padding-bottom: 20px;
+        }
+        @include for-size(mobile) {
+            padding-bottom: 0;
+            padding-top: 10px;
+        }
+      }
+      a {
+        text-decoration: none;
+      }
+      &__text {
+        @include text-formatter($--work, 22px, 400, 160%);
+        @include for-size(tablet) {
+          line-height: 140%;
+          font-size: 16px;
+        }
+      }
+    }
+    .hero-started {
+      grid-area: 2 / 1 / 3 / 2;
+      @include for-size(mobile) {
+        grid-area: 3 / 1 / 4 / 2
+      }
+      img {
+        width: 20px;
+        height: 20px;
+      }
+      a {
+        text-decoration: none;
+        @include for-size(mobile) {
+            width: 100%;
+          }
+      }
+      &__infos {
+        display: grid;
+        column-gap: 30px;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        justify-content: space-between;
+        @include for-size(mobile) {
+            padding-top: 20px;
+          }
+      }
+
+      &__info {
+        padding-top: 30px;
+        @include for-size(tablet) {
+          padding-top: 20px;
+        }
+        h4 {
+          @include for-size(tablet) {
+            @include text-formatter($--mono, 22px, 700, 160%);
+          }
+        }
+        &__text {
+          @include text-formatter($--work, 24px, 400, 160%);
+          @include for-size(tablet) {
+            @include text-formatter($--work, 16px, 400, 140%);
+          }
+        }
+      }
+    }
+  }
 }
