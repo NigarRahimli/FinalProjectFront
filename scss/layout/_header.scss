@@ -1,17 +1,42 @@
-.container {
-    @include container(1280px);
+header {
+  padding: 0 50px;
+  margin: 0 auto;
+  background-color: $--Background;
+  .nav-container{
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
   }
-
-  header{
-    background-color: $--Background;
-    .logo{
+  .logo {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+  }
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    @include text-formatter($--work,16px, 600, 140%);
+    &__list{
       display: flex;
-      column-gap: 12px;
+      align-items: center;
     }
-    .nav-menu{
-      display: flex;
-      @include text-formatter();
+    ul >li a{
+      text-decoration: none;
+      color: $--Text;
+    } 
+    &__list{
+      &__sign{
+        @include button-formatter(60px, 0 30px);
+        @include text-formatter($--work,16px, 600, 140%);
+        img{
+          width: 20px;
+          height: 20px;
+        }
+      }
+      &__item{
+        padding: 0 20px;
+
+      }
     }
   }
-
-   
+}

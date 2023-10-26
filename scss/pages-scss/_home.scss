@@ -1,0 +1,49 @@
+.container{
+    @include container(1050px);
+}
+#hero{
+    background-color: $--Background;
+    padding: 80px 0;
+    img{
+        width: 510px;
+        height: 510px;
+    }
+    .hero-container{
+        display: flex;
+        justify-content: space-between;
+        column-gap: 30px;
+        h1{
+            width: 510px;
+        }
+        .hero-content{
+            &__text{
+                padding-top: 20px;
+                padding-bottom: 30px;
+            }
+            a{
+                text-decoration: none;
+            }
+            &__text{
+                @include text-formatter($--work, 22px, 400, 160%);
+            }
+            img{
+                width: 20px;
+                height: 20px;
+            }
+            &__infos{
+                display: flex;
+                column-gap: 30px;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            &__info{
+                padding-top: 30px;
+            
+        &__text{
+                
+                @include text-formatter($--work, 24px, 400, 160%);
+            }}
+        }
+    }
+}
