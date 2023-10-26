@@ -1,0 +1,17 @@
+.container {
+    @include container(1280px);
+  }
+
+  header{
+    background-color: $--Background;
+    .logo{
+      display: flex;
+      column-gap: 12px;
+    }
+    .nav-menu{
+      display: flex;
+      @include text-formatter();
+    }
+  }
+
+   

@@ -147,7 +147,7 @@ table {
   line-height: 140%;
   text-transform: capitalize;
   display: inline-flex;
-  height: 72px;
+  height: 60px;
   padding: 0px 50px;
   justify-content: center;
   align-items: center;
@@ -156,8 +156,8 @@ table {
   border-radius: 20px;
   background: #a259ff;
   transition: all 0.3s ease;
-  cursor: pointer;
   border: 2px solid #a259ff;
+  cursor: pointer;
 }
 .primary:hover {
   transform: scale(0.95);
@@ -335,4 +335,21 @@ table {
   font-weight: 400;
   line-height: 110%;
   text-transform: capitalize;
+}
+
+.container {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+header {
+  background-color: #2b2b2b;
+}
+header .logo {
+  display: flex;
+  -moz-column-gap: 12px;
+       column-gap: 12px;
+}
+header .nav-menu {
+  display: flex;
 }/*# sourceMappingURL=main.css.map */

@@ -1,58 +1,14 @@
 .primary {
   @include text-formatter($--work, 22px, 600, 140%);
-  display: inline-flex;
-  height: 72px;
-  padding: 0px 50px;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-  border-radius: 20px;
-  background: $--Call-to-Action;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: 2px solid $--Call-to-Action;
-
-  &:hover {
-    transform: scale(0.95);
-  }
+  @include button-formatter(72px, 0px 50px);
 }
 
 .secondary {
   @include text-formatter($--work, 16px, 600, 140%);
-  display: inline-flex;
-  height: 60px;
-  padding: 0px 50px;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-  border-radius: 20px;
-  background: $--Call-to-Action;
-  transition: all 0.3s ease;
-  border: 2px solid $--Call-to-Action;
-  cursor: pointer;
-  &:hover {
-    transform: scale(0.95);
-  }
+  @include button-formatter(60px, 0px 50px);
 }
 
-
 .tertiary {
-    @include text-formatter($--work, 16px, 600, 140%);
-    display: inline-flex;
-    height: 46px;
-    padding: 0px 50px;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    flex-shrink: 0;
-    border-radius: 20px;
-    background:$--Call-to-Action;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: 2px solid $--Call-to-Action;
-    &:hover{
-      transform: scale(0.95);
-  }
-  }
+  @include text-formatter($--work, 16px, 600, 140%);
+  @include button-formatter(46px, 0px 50px);
+}
