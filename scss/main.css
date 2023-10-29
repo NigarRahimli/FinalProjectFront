@@ -1101,6 +1101,22 @@ body {
   background-size: cover;
   background-position: 50% 50%;
 }
+@media screen and (max-width: 1280px) {
+  #magic {
+    background: linear-gradient(180deg, rgba(162, 89, 255, 0) 0%, #a259ff 100%), url(../../public/imgs/photos/small-mushroom.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+}
+@media screen and (max-width: 825px) {
+  #magic {
+    background: linear-gradient(180deg, rgba(162, 89, 255, 0) 0%, #a259ff 100%), url(../../public/imgs/photos/small-small-mushroom.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+}
 #magic .magic {
   padding-top: 360px;
   padding-bottom: 60px;
@@ -1198,4 +1214,103 @@ body {
 }
 #magic .magic__right__time__number h3 {
   padding-bottom: 5px;
+}
+
+#how .how {
+  padding: 80px 0;
+}
+@media screen and (max-width: 1280px) {
+  #how .how__h3 {
+    color: #fff;
+    font-family: "Work Sans", sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 140%;
+    text-transform: capitalize;
+  }
+}
+#how .how__text {
+  color: #fff;
+  font-family: "Work Sans", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 160%;
+  text-transform: capitalize;
+  padding-top: 10px;
+  padding-bottom: 48px;
+}
+@media screen and (max-width: 1280px) {
+  #how .how__text {
+    padding-bottom: 40px;
+    font-size: 16px;
+  }
+}
+#how .how__cards {
+  display: flex;
+  gap: 30px;
+}
+@media screen and (max-width: 825px) {
+  #how .how__cards {
+    flex-direction: column;
+  }
+}
+#how .how__cards__card {
+  border-radius: 20px;
+  background: #3b3b3b;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  align-items: center;
+  width: 330px;
+  padding: 10px 30px 30px 30px;
+}
+@media screen and (max-width: 1280px) {
+  #how .how__cards__card img {
+    width: 160px;
+    height: 160px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  #how .how__cards__card img {
+    width: 100px;
+    height: 100px;
+  }
+}
+@media screen and (max-width: 825px) {
+  #how .how__cards__card {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+  }
+}
+#how .how__cards__card__content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  align-items: center;
+  text-align: center;
+}
+@media screen and (max-width: 825px) {
+  #how .how__cards__card__content {
+    align-items: start;
+    text-align: start;
+  }
+}
+#how .how__cards__card__content h5 {
+  color: #fff;
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 140%;
+  text-transform: capitalize;
+}
+#how .how__cards__card__content p {
+  color: #fff;
+  font-family: "Work Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 140%;
+  text-transform: capitalize;
 }/*# sourceMappingURL=main.css.map */

@@ -499,13 +499,27 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
+  @include for-size(tablet) {
+    background: linear-gradient(180deg, rgba(162, 89, 255, 0) 0%, #a259ff 100%),
+      url(../../public/imgs/photos/small-mushroom.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+  @include for-size(mobile) {
+    background: linear-gradient(180deg, rgba(162, 89, 255, 0) 0%, #a259ff 100%),
+      url(../../public/imgs/photos/small-small-mushroom.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
 
   .magic {
     padding-top: 360px;
     padding-bottom: 60px;
     @include for-size(mobile) {
       padding-top: 120px;
-    padding-bottom: 40px;
+      padding-bottom: 40px;
     }
     display: flex;
     justify-content: space-between;
@@ -576,6 +590,84 @@ body {
         &__number {
           h3 {
             padding-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+#how {
+  .how {
+    padding: 80px 0;
+    &__h3 {
+      @include for-size(tablet) {
+        @include text-formatter($--work, 28px, 600, 140%);
+      }
+    }
+    &__text {
+      @include text-formatter($--work, 22px, 400, 160%);
+
+      padding-top: 10px;
+      padding-bottom: 48px;
+      @include for-size(tablet) {
+        padding-bottom: 40px;
+        font-size: 16px;
+      }
+    }
+    &__cards {
+      display: flex;
+      gap: 30px;
+      // flex-wrap: wrap;
+      @include for-size(mobile) {
+        flex-direction: column;
+      }
+      &__card {
+        border-radius: 20px;
+        background: $--Background---Secondary;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        align-items: center;
+        width: 330px;
+        padding: 10px 30px 30px 30px;
+       
+        img {
+          @include for-size(tablet) {
+            width: 160px;
+            height: 160px;
+          }
+          @include for-size(tablet) {
+            width: 100px;
+            height: 100px;
+          }
+        }
+        @include for-size(mobile) {
+          flex-direction: row;
+     justify-content: space-between;
+     padding: 20px;
+     column-gap: 20px;
+    
+        }
+        &__content {
+          display: flex;
+          flex-direction: column;
+          row-gap: 10px;
+          align-items: center;
+          text-align: center;
+          
+          @include for-size(mobile) {
+            align-items: start;
+            
+            text-align: start;
+          }
+          h5{
+            @include text-formatter($--work, 16px, 600, 140%);
+
+          }
+          p{
+            @include text-formatter($--work, 12px, 400, 140%);
+
           }
         }
       }
