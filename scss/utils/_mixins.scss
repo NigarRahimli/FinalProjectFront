@@ -13,7 +13,7 @@
   line-height: $line-height;
   text-transform: $text-transform;
 }
-@mixin button-formatter($height,$padding){
+@mixin button-formatter($height, $padding) {
   display: inline-flex;
   height: 60px;
   padding: $padding;
@@ -32,11 +32,13 @@
 }
 @mixin for-size($type) {
   @if $type == tablet {
-    @media screen and (max-width: 1280px) {
+    @media screen and (max-width: 1050px) {
+      //1280
       @content;
     }
   } @else if $type == mobile {
-    @media screen and (max-width: 825px) {
+    @media screen and (max-width: 690px) {
+      //825
       @content;
     }
   }
