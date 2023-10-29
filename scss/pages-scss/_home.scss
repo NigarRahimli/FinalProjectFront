@@ -140,12 +140,14 @@ body {
   }
 
   .trending {
+    overflow: hidden;
     &__text {
       padding-top: 10px;
       @include text-formatter($--work, 22px, 400, 160%, none);
       padding-bottom: 60px;
 
       @include for-size(tablet) {
+        
         @include text-formatter($--work, 16px, 400, 140%, none);
         padding-bottom: 40px;
       }
@@ -161,6 +163,7 @@ body {
       column-gap: 30px;
       @include for-size(tablet) {
         grid-template-columns: repeat(2, 1fr);
+        
       }
       @include for-size(mobile) {
         grid-template-columns: 1fr;
@@ -675,6 +678,8 @@ body {
 // ----------------------
 
 #join {
+  padding-top:40px ;
+  padding-bottom: 80px;
   .join {
     display: flex;
     background-color: $--Background---Secondary;

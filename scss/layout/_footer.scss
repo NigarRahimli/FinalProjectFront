@@ -1,0 +1,14 @@
+footer {
+  background-color: $--Background---Secondary;
+  padding: 40px 0;
+  .footer {
+    p {
+      color: $--Footer-text;
+    }
+    &__info {
+      &__nft {
+        padding: 20px 0;
+      }
+    }
+  }
+}
