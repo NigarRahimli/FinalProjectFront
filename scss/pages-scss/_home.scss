@@ -7,8 +7,10 @@
     @include container(315px);
   }
 }
-#hero {
+body {
   background-color: $--Background;
+}
+#hero {
   padding: 80px 0;
   @include for-size(mobile) {
     padding: 40px 0;
@@ -135,7 +137,6 @@
 }
 
 #trending {
-  background-color: $--Background;
   padding: 80px 0;
   @include for-size(tablet) {
     padding: 40px 0;
@@ -243,7 +244,6 @@
 }
 
 #top {
-  background-color: $--Background;
   padding: 80px 0;
   @include for-size(tablet) {
     padding: 40px 0;
@@ -254,9 +254,9 @@
   .top {
     display: grid;
     column-gap: 100px;
-    
+
     grid-template-columns: auto auto;
-  
+
     @include for-size(mobile) {
       grid-template-columns: 1fr;
     }
@@ -267,7 +267,11 @@
       }
       margin-top: 30px;
       background-color: $--Background;
-
+      @include for-size(mobile){
+       
+      margin-top: 40px;
+        
+      }
       img {
         width: 20px;
         height: 20px;
@@ -356,6 +360,146 @@
             @include for-size(tablet) {
               left: 12px;
               top: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ---------
+
+#browse {
+  .browse {
+    padding: 80px 0;
+    &__cards {
+      &__card {
+        display: initial;
+      }
+    }
+  }
+}
+
+// -------------------
+
+#discover {
+  .discover {
+    padding: 80px 0;
+    @include for-size(tablet) {
+      padding: 40px 0;
+    }
+    a {
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      &:hover {
+        transform: scale(0.95);
+      }
+    }
+
+    display: grid;
+    column-gap: 100px;
+
+    grid-template-columns: 4fr 1fr;
+    @include for-size(tablet) {
+      grid-template-columns: 2.1fr 1fr;
+    }
+    @include for-size(mobile) {
+      grid-template-columns: 1fr;
+    }
+    &__button {
+      grid-area: 1 / 2 / 2 / 3;
+      @include for-size(mobile) {
+        grid-area: 3 / 1 / 4 / 2;
+      }
+      margin-top: 30px;
+      background-color: $--Background;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    &__texts {
+      grid-area: 1 / 1 / 2 / 2;
+
+      &__text {
+        padding-top: 10px;
+        @include text-formatter($--work, 22px, 400, 160%, none);
+        padding-bottom: 60px;
+
+        @include for-size(tablet) {
+          @include text-formatter($--work, 16px, 400, 140%, none);
+          padding-bottom: 40px;
+        }
+      }
+      &__heading {
+        @include for-size(tablet) {
+          @include text-formatter($--work, 28px, 600, 140%);
+        }
+      }
+    }
+
+    &__cards {
+      grid-area: 2 / 1 / 3 / 3;
+      display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 30px;
+
+      @include for-size(tablet){
+        grid-template-columns: repeat(2,1fr);
+        
+      }
+      @include for-size(mobile) {
+        grid-area: 2 / 1 / 3 / 2;
+        grid-template-columns: 1fr;
+
+      }
+      &__card {
+        
+        background-color: $--Background---Secondary;
+        border-radius:20px ;
+       
+        @include for-size(tablet){
+          &:last-child{
+            display: none;
+          }
+          
+        }
+        @include for-size(mobile){
+          &:last-child{
+            display: initial;
+          }
+          
+        }
+
+        &__img {
+          height: 296px;
+        }
+        &__content {
+          padding: 20px 30px;
+        
+          
+          img {
+            width: 24px;
+            height: 24px;
+          }
+          &__dancer{
+            padding-top: 5px;
+            display: flex;
+            column-gap: 12px;
+            align-items: center;
+            
+          }
+          &__records {
+            padding-top: 25px;
+            display: flex;
+            column-gap:21px;
+            justify-content: space-between;
+            .col-grey {
+              color: $--caption-label-text;
+              padding-bottom: 8px;
             }
           }
         }
