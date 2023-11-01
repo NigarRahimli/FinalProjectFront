@@ -10,6 +10,7 @@
 body {
   background-color: $--Background;
 }
+
 #hero {
   padding: 80px 0;
   @include for-size(mobile) {
@@ -528,11 +529,9 @@ body {
     justify-content: space-between;
     align-items: end;
     .addition {
-      visibility: hidden;
-      opacity: 0;
+      display: none;
       @include for-size(mobile) {
-        visibility: visible;
-        opacity: 1;
+       display: flex;
       }
     }
     @include for-size(mobile) {
@@ -603,6 +602,9 @@ body {
 #how {
   .how {
     padding: 80px 0;
+    @include for-size(tablet) {
+      padding: 40px 0;
+    }
     &__h3 {
       @include for-size(tablet) {
         @include text-formatter($--work, 28px, 600, 140%);
@@ -680,7 +682,67 @@ body {
 #join {
   padding-top:40px ;
   padding-bottom: 80px;
+  @include for-size(tablet) {
+    padding: 0;
+  }
+  .subscribe {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    padding: 16px 0px 16px 20px;
+    align-items: center;
+    row-gap: 12px;
+    border-radius: 20px;
+    background: $--Text;
+    @include for-size(tablet) {
+      padding: 0;
+      background-color: transparent;
+      flex-direction: column;
+      height: auto;
+      column-gap: 16px;
+    }
+    &__button {
+      @include for-size(tablet) {
+        width: 100%;
+        height: 46px;
+      }
+    }
+    input {
+      border: none;
+      width: 100%;
+      font-family: $--work;
+      font-size: 16px;
+      &:focus {
+        outline: none;
+      }
+      &::placeholder {
+        @include text-formatter(
+          $--work,
+          16px,
+          400,
+          140%,
+          none,
+          $--Background
+        );
+      }
+      @include for-size(tablet) {
+        display: flex;
+        height: 46px;
+        padding: 16px 20px;
+        align-items: center;
+        gap: 12px;
+        border-radius: 20px;
+        border: 1px solid $--caption-label-text;
+        background: var(--Text, #fff);
+      }
+    }
+    img {
+      width: 22px;
+      height: 22px;
+    }
+  }
   .join {
+    
     display: flex;
     background-color: $--Background---Secondary;
     border-radius: 20px;
@@ -691,9 +753,9 @@ body {
       padding: 40px 30px;
       gap: 30px;
       
-      
     }
     @include for-size(mobile) {
+      padding: 40px 0px;
       align-items: center;
       justify-content: center;
       flex-direction: column;
@@ -718,62 +780,7 @@ body {
           @include text-formatter($--work, 28px, 600, 140%);
         }
       }
-      .subscribe {
-        display: flex;
-        justify-content: space-between;
-        height: 60px;
-        padding: 16px 0px 16px 20px;
-        align-items: center;
-        row-gap: 12px;
-        align-self: stretch;
-        border-radius: 20px;
-        background: $--Text;
-        @include for-size(tablet) {
-          background-color: transparent;
-          flex-direction: column;
-          height: auto;
-          column-gap: 16px;
-        }
-        &__button {
-          @include for-size(tablet) {
-            width: 100%;
-            height: 46px;
-          }
-        }
-        input {
-          border: none;
-          width: 100%;
-          font-family: $--work;
-          font-size: 16px;
-          &:focus {
-            outline: none;
-          }
-          &::placeholder {
-            @include text-formatter(
-              $--work,
-              16px,
-              400,
-              140%,
-              none,
-              $--Background
-            );
-          }
-          @include for-size(tablet) {
-            display: flex;
-            height: 46px;
-            padding: 16px 20px;
-            align-items: center;
-            gap: 12px;
-            border-radius: 20px;
-            border: 1px solid $--caption-label-text;
-            background: var(--Text, #fff);
-          }
-        }
-        img {
-          width: 22px;
-          height: 22px;
-        }
-      }
+     
       &__text {
         padding-top: 10px;
         padding-bottom: 40px;

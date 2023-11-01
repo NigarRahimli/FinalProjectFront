@@ -1,13 +1,161 @@
 footer {
   background-color: $--Background---Secondary;
   padding: 40px 0;
+
   .footer {
     p {
       color: $--Footer-text;
     }
-    &__info {
-      &__nft {
-        padding: 20px 0;
+    hr {
+      margin-top: 30px;
+      margin-bottom: 20px;
+      border: 1px solid $--caption-label-text;
+    }
+    &__content {
+      .subscribe {
+        width: 420px;
+
+        img {
+          display: none;
+          @include for-size(tablet) {
+            display: initial;
+          }
+        }
+        
+        display: flex;
+
+        justify-content: space-between;
+        height: 60px;
+        padding: 16px 0px 16px 20px;
+        align-items: center;
+        row-gap: 12px;
+        border-radius: 20px;
+        background: $--Text;
+        @include for-size(mobile) {
+          
+          padding: 0;
+        }
+        
+        @include for-size(mobile) {
+          width: 100%;
+          background-color: transparent;
+          flex-direction: column;
+          height: auto;
+          column-gap: 16px;
+        }
+        &__button {
+          @include for-size(mobile) {
+            width: 100%;
+            height: 46px;
+          }
+        }
+        input {
+          border: none;
+          width: 100%;
+          font-family: $--work;
+          font-size: 16px;
+          &:focus {
+            outline: none;
+          }
+          &::placeholder {
+            @include text-formatter(
+              $--work,
+              16px,
+              400,
+              140%,
+              none,
+              $--Background
+            );
+          }
+          @include for-size(mobile) {
+            display: flex;
+            height: 46px;
+            padding: 16px 20px;
+            align-items: center;
+            gap: 12px;
+            border-radius: 20px;
+            border: 1px solid $--caption-label-text;
+            background: var(--Text, #fff);
+          }
+        }
+        img {
+          width: 22px;
+          height: 22px;
+        }
+      }
+
+      a,
+      p {
+        text-transform: none;
+      }
+      display: flex;
+      row-gap: 30px;
+      justify-content: center;
+      @include for-size(tablet) {
+        width: 100%;
+        flex-direction: column;
+      }
+      p {
+        color: $--Footer-text;
+      }
+      &__info {
+        width: 327.414px;
+        &__logo {
+          display: flex;
+          gap: 12px;
+          align-items: center;
+          padding-bottom: 10px;
+        }
+        &__nft {
+          width: 238px;
+          padding: 20px 0;
+          @include for-size(tablet) {
+            width: 690px;
+          }
+          @include for-size(mobile){
+            width: 100%;
+          }
+        }
+        &__p {
+          width: 238px;
+          padding-bottom: 15px;
+        }
+        &__icons {
+          display: flex;
+          column-gap: 10px;
+        }
+      }
+      &__explore {
+        width: 240px;
+        a {
+          color: $--Footer-text;
+        }
+        h5 {
+          margin-bottom: 5px;
+        }
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+      }
+
+      &__join {
+        h5 {
+          margin-bottom: 5px;
+        }
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+
+        &__p {
+          width: 330px;
+          @include for-size(tablet) {
+            width: 690px;
+          }
+          @include for-size(tablet) {
+            width: 100%;
+          }
+          
+        }
       }
     }
   }
