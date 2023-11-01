@@ -9,6 +9,7 @@
 }
 body {
   background-color: $--Background;
+  overflow-x: hidden;
 }
 
 #hero {
@@ -148,7 +149,6 @@ body {
       padding-bottom: 60px;
 
       @include for-size(tablet) {
-        
         @include text-formatter($--work, 16px, 400, 140%, none);
         padding-bottom: 40px;
       }
@@ -164,7 +164,6 @@ body {
       column-gap: 30px;
       @include for-size(tablet) {
         grid-template-columns: repeat(2, 1fr);
-        
       }
       @include for-size(mobile) {
         grid-template-columns: 1fr;
@@ -366,11 +365,45 @@ body {
 // ---------
 
 #browse {
+
   .browse {
     padding: 80px 0;
     &__cards {
+
+      display: grid;
+      grid-template-columns: repeat(4, auto);   
+      padding-top: 60px;
+      gap: 30px;
+      
+      @include for-size(mobile) {
+        grid-template-columns: repeat(2, auto);  
+      }
+      a {
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        &:hover {
+          transform: scale(0.95);
+        }
+      }
       &__card {
-        display: initial;
+        
+        background-color: $--Background---Secondary;
+        border-radius: 20px;
+        img{
+          @include for-size(tablet) {
+            width:150px ;
+            height:142px ;
+          }
+
+        }
+       
+        &__text {
+          padding: 20px 30px 25px 30px;
+          width: 100%;
+          @include for-size(tablet) {
+            font-size: 16px;
+          }
+        }
       }
     }
   }
@@ -531,7 +564,7 @@ body {
     .addition {
       display: none;
       @include for-size(mobile) {
-       display: flex;
+        display: flex;
       }
     }
     @include for-size(mobile) {
@@ -680,9 +713,9 @@ body {
 // ----------------------
 
 #join {
-  padding-top:40px ;
+  padding-top: 40px;
   padding-bottom: 80px;
-  @include for-size(tablet) {
+  @include for-size(mobile) {
     padding: 0;
   }
   .subscribe {
@@ -716,14 +749,7 @@ body {
         outline: none;
       }
       &::placeholder {
-        @include text-formatter(
-          $--work,
-          16px,
-          400,
-          140%,
-          none,
-          $--Background
-        );
+        @include text-formatter($--work, 16px, 400, 140%, none, $--Background);
       }
       @include for-size(tablet) {
         display: flex;
@@ -742,7 +768,6 @@ body {
     }
   }
   .join {
-    
     display: flex;
     background-color: $--Background---Secondary;
     border-radius: 20px;
@@ -752,7 +777,6 @@ body {
     @include for-size(tablet) {
       padding: 40px 30px;
       gap: 30px;
-      
     }
     @include for-size(mobile) {
       padding: 40px 0px;
@@ -765,10 +789,8 @@ body {
       @include for-size(tablet) {
         width: 330px;
         height: 285px;
-        
       }
     }
-    
 
     @include for-size(mobile) {
       display: flex;
@@ -780,7 +802,7 @@ body {
           @include text-formatter($--work, 28px, 600, 140%);
         }
       }
-     
+
       &__text {
         padding-top: 10px;
         padding-bottom: 40px;

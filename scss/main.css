@@ -659,6 +659,7 @@ header .nav-menu__list__item {
 
 body {
   background-color: #2b2b2b;
+  overflow-x: hidden;
 }
 
 #hero {
@@ -1133,8 +1134,42 @@ body {
 #browse .browse {
   padding: 80px 0;
 }
+#browse .browse__cards {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  padding-top: 60px;
+  gap: 30px;
+}
+@media screen and (max-width: 690px) {
+  #browse .browse__cards {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+#browse .browse__cards a {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+#browse .browse__cards a:hover {
+  transform: scale(0.95);
+}
 #browse .browse__cards__card {
-  display: initial;
+  background-color: #3b3b3b;
+  border-radius: 20px;
+}
+@media screen and (max-width: 1050px) {
+  #browse .browse__cards__card img {
+    width: 150px;
+    height: 142px;
+  }
+}
+#browse .browse__cards__card__text {
+  padding: 20px 30px 25px 30px;
+  width: 100%;
+}
+@media screen and (max-width: 1050px) {
+  #browse .browse__cards__card__text {
+    font-size: 16px;
+  }
 }
 
 #discover .discover {
@@ -1502,7 +1537,7 @@ body {
   padding-top: 40px;
   padding-bottom: 80px;
 }
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 690px) {
   #join {
     padding: 0;
   }
