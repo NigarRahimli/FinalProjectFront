@@ -1,0 +1,248 @@
+#user-account {
+  .active {
+    border-bottom: 2px solid $--caption-label-text;
+
+    .heading {
+      color: $--Text;
+    }
+    .number {
+      background: $--caption-label-text;
+    }
+  }
+  .user {
+    hr {
+      border: 1px solid $--Background---Secondary;
+    }
+    &__img {
+      height: 320px;
+      width: 100%;
+      object-fit: cover;
+      @include for-size(tablet) {
+        height: 280px;
+      }
+      @include for-size(mobile) {
+        height: 250px;
+      }
+    }
+    &__info {
+       
+      &__avatar{
+        margin-top: -70px;  
+        &__img {
+           
+            border-radius: 20px;
+            border: 2px solid $--Background;
+          
+          }
+          @include for-size(mobile) {
+            display: flex;
+            justify-content: center;
+            border: 2px solid $--Background;
+          }
+      }
+      &__content {
+        display: flex;
+        flex-direction: column;
+        padding: 40px 0;
+        column-gap: 100px;
+        @include for-size(tablet) {
+        padding: 30px 0;
+
+          }
+        &__left {
+          display: flex;
+          flex-direction: column;
+          width: 599px;
+          row-gap: 30px;
+          @include for-size(tablet) {
+            width: 100%;
+          }
+          h5 {
+            color: $--caption-label-text;
+            @include for-size(tablet) {
+              @include text-formatter($--mono, 16px, 400, 140%,capitalize,$--caption-label-text);
+            }
+          }
+          &__bio {
+            p {
+              padding-top: 10px;
+              @include text-formatter($--work, 22px, 400, 160%);
+              @include for-size(tablet) {
+                @include text-formatter($--work, 16px, 400, 140%);
+              }
+            }
+          }
+          &__link {
+            &__icons {
+              padding-top: 10px;
+              display: flex;
+              column-gap: 10px;
+              img {
+                @include for-size(tablet) {
+                  width: 24px;
+                  height: 24px;
+                }
+              }
+            }
+          }
+          &__count {
+            display: flex;
+            column-gap: 20px;
+            width: 510px;
+            @include for-size(tablet) {
+                width: 100%;
+              }
+            &__col {
+              width: 100%;
+              &__value {
+                @include text-formatter($--work, 22px, 400, 160%);
+                @include for-size(tablet) {
+                  @include text-formatter($--work, 16px, 400, 160%);
+                }
+              }
+              &__number {
+                @include for-size(tablet) {
+                  @include text-formatter($--mono, 22px, 700, 160%);
+                }
+              }
+            }
+          }
+        }
+        &__detail {
+          display: flex;
+          justify-content: space-between;
+          @include for-size(tablet) {
+            flex-direction: column;
+            padding-bottom: 30px;
+          }
+          h2 {
+            width: 510px;
+            padding-bottom: 30px;
+            @include for-size(tablet) {
+              @include text-formatter($--work, 38px, 600, 120%);
+            }
+            @include for-size(mobile) {
+               width: 100%;
+              }
+          }
+          &__buttons {
+            display: flex;
+            gap: 20px;
+            @include for-size(mobile) {
+               display: flex;
+               flex-direction: column;
+              }
+            &__copy {
+              width: 186px;
+              text-align: center;
+              &__icon {
+                margin-left: -6.5px;
+              }
+              @include for-size(tablet) {
+                width: 100%;
+              }
+            }
+            &__follow {
+              background-color: transparent;
+              padding: 0px 30px;
+              @include for-size(tablet) {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .states {
+    display: flex;
+    &__category {
+      width: calc(100% / 3);
+      justify-content: center;
+      h5 {
+        color: $--caption-label-text;
+        @include for-size(tablet) {
+            font-size: 16px;
+          }
+      }
+
+      padding: 12px 0;
+      display: flex;
+      column-gap: 16px;
+      align-items: center;
+      align-self: stretch;
+      column-gap: 30px;
+      &__number {
+        display: flex;
+        padding: 5px 10px;
+        align-items: center;
+        gap: 10px;
+        border-radius: 20px;
+        background: var(--Background---Secondary, #3b3b3b);
+        @include text-formatter($--mono, 16px, 400, 140%);
+        @include for-size(tablet) {
+            font-size: 12px;
+            line-height: 110%;
+          }
+          @include for-size(mobile) {
+            display: none;
+          }
+        
+      }
+    }
+  }
+}
+#card {
+  background-color: $--Background---Secondary;
+  border-bottom: 2px solid var(--Background, #2b2b2b);
+  .discover__cards {
+    padding: 80px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    @include for-size(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include for-size(mobile) {
+      grid-template-columns: 1fr;
+    }
+    &__card {
+      background-color: $--Background;
+      border-radius: 20px;
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+      &:hover {
+        transform: scale(0.95);
+      }
+
+      &__img {
+        height: 296px;
+      }
+      &__content {
+        padding: 20px 30px;
+
+        img {
+          width: 24px;
+          height: 24px;
+        }
+        &__dancer {
+          padding-top: 5px;
+          display: flex;
+          column-gap: 12px;
+          align-items: center;
+        }
+        &__records {
+          padding-top: 25px;
+          display: flex;
+          column-gap: 21px;
+          justify-content: space-between;
+          .col-grey {
+            color: $--caption-label-text;
+            padding-bottom: 8px;
+          }
+        }
+      }
+    }
+  }
+}
