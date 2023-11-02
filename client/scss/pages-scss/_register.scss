@@ -1,0 +1,97 @@
+#content {
+  .content {
+    display: flex;
+    column-gap: 60px;
+    @include for-size(mobile) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    &__img {
+      object-fit: cover;
+      width: 50%;
+      @include for-size(mobile) {
+        width: 100%;
+        height: 232px;
+      }
+    }
+    &__account {
+      width: 50%;
+      padding: 100px 0;
+
+      @include for-size(mobile) {
+        width: 100%;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      &__text {
+        padding-top: 20px;
+        padding-bottom: 40px;
+        @include text-formatter($--work, 22px, 400, 160%);
+        @include for-size(tablet) {
+          @include text-formatter($--work, 16px, 400, 140%);
+        }
+      }
+      &__heading {
+        @include for-size(tablet) {
+          @include text-formatter($--work, 38px, 600, 120%);
+        }
+        @include for-size(mobile) {
+          margin-top: 30px;
+        }
+      }
+      &__button {
+        width: 330px;
+        @include for-size(mobile) {
+          width: 315px;
+          margin-bottom: 40px;
+        }
+      }
+      &__form {
+        display: flex;
+        flex-direction: column;
+
+        @include for-size(mobile) {
+          width: 100%;
+          align-items: center;
+        }
+        row-gap: 15px;
+        padding-bottom: 30px;
+        div {
+          display: flex;
+          height: 46px;
+          width: 330px;
+          padding: 16px 20px;
+          align-items: center;
+          gap: 12px;
+          border-radius: 20px;
+          border: 1px solid $--caption-label-text;
+          background: $--Text;
+          text-align: center;
+          @include for-size(mobile) {
+            width: 315px;
+          }
+        }
+        input {
+          width: 100%;
+          border: none;
+          outline: none;
+          margin-top: 5px;
+          &::placeholder {
+            @include text-formatter(
+              $--work,
+              16px,
+              400,
+              140%,
+              none,
+              $--Background
+            );
+          }
+        }
+      }
+    }
+  }
+}
