@@ -2023,7 +2023,7 @@ body {
 #user-account .user__info__content__detail__buttons__copy__icon {
   margin-left: -6.5px;
 }
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 690px) {
   #user-account .user__info__content__detail__buttons__copy {
     width: 100%;
   }
@@ -2032,7 +2032,7 @@ body {
   background-color: transparent;
   padding: 0px 30px;
 }
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 690px) {
   #user-account .user__info__content__detail__buttons__follow {
     width: 100%;
   }
@@ -2142,4 +2142,138 @@ body {
 #card .discover__cards__card__content__records .col-grey {
   color: #858584;
   padding-bottom: 8px;
+}
+
+#top-creators .top-creators__content {
+  padding: 80px 0;
+}
+#top-creators .top-creators__content__p {
+  padding-top: 20px;
+  color: #fff;
+  font-family: "Work Sans", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 160%;
+  text-transform: capitalize;
+}
+#top-creators .top-creators__content__time .active {
+  border-bottom: 2px solid #858584;
+}
+#top-creators .top-creators__content__time .active .heading {
+  color: #fff;
+}
+#top-creators .top-creators__content__time .states {
+  display: flex;
+}
+#top-creators .top-creators__content__time .states__category {
+  width: 33.3333333333%;
+  justify-content: center;
+  padding: 12px 0;
+  display: flex;
+  -moz-column-gap: 16px;
+       column-gap: 16px;
+  align-items: center;
+  align-self: stretch;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+}
+#top-creators .top-creators__content__time .states__category h5 {
+  color: #858584;
+}
+@media screen and (max-width: 1050px) {
+  #top-creators .top-creators__content__time .states__category h5 {
+    font-size: 16px;
+  }
+}
+#top-creators .top-creators__ranking-list {
+  padding: 40px 0;
+}
+#top-creators .top-creators__ranking-list__indicator {
+  height: 46px;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid var(--Background---Secondary, #3b3b3b);
+  padding: 0px 20px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+#top-creators .top-creators__ranking-list__indicator p {
+  color: #858584;
+  font-family: "Space Mono", monospace;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 140%;
+  text-transform: Capitilize;
+}
+#top-creators .top-creators__ranking-list__indicator__artist {
+  display: flex;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  width: 430px;
+}
+#top-creators .top-creators__ranking-list__indicator__change {
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+#top-creators .top-creators__ranking-list__indicator__change p {
+  width: 33.3333333333%;
+}
+#top-creators .top-creators__ranking-list__items {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+#top-creators .top-creators__ranking-list__items__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-radius: 20px;
+  row-gap: 20px;
+  background: #3b3b3b;
+}
+#top-creators .top-creators__ranking-list__items__item .percent {
+  color: #00AC4F;
+}
+#top-creators .top-creators__ranking-list__items__item img {
+  width: 60px;
+}
+#top-creators .top-creators__ranking-list__items__item__info {
+  display: flex;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  width: 430px;
+  align-items: center;
+}
+#top-creators .top-creators__ranking-list__items__item__info__number {
+  display: flex;
+  min-width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background: #2b2b2b;
+  color: #858584;
+  font-family: "Space Mono", monospace;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 140%;
+  text-transform: none;
+}
+#top-creators .top-creators__ranking-list__items__item__index {
+  width: 500px;
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  justify-content: flex-end;
+}
+#top-creators .top-creators__ranking-list__items__item__index p {
+  width: 33.3333333333%;
 }/*# sourceMappingURL=main.css.map */
