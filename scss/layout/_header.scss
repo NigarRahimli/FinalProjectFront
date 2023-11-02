@@ -1,3 +1,4 @@
+
 header {
   padding: 0 50px;
   margin: 0 auto;
@@ -43,6 +44,26 @@ header {
     align-items: center;
     @include text-formatter($--work, 16px, 600, 140%, none);
   
+   &__side{
+    position: relative;
+    &__list{
+position: fixed;
+display: flex;
+flex-direction: column;
+box-shadow: rgba(0, 0, 0, 0.548) 0px 5px 15px;
+
+
+gap: 30px;
+top: 0;
+right: -100%;
+width: 250px;
+padding: 30px;
+height: 100vh;
+z-index: 10;
+transition:all  0.3s ease-in-out;
+background-color: $--Background---Secondary;
+
+    }
     &__burger {
       width: 24px;
       height: 24px;
@@ -51,6 +72,7 @@ header {
         display: initial;
       }
     }
+   }
     ul > li {
       transition: all 0.3s ease;
       cursor: pointer;

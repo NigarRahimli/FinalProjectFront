@@ -579,13 +579,31 @@ header .nav-menu {
   line-height: 140%;
   text-transform: none;
 }
-header .nav-menu__burger {
+header .nav-menu__side {
+  position: relative;
+}
+header .nav-menu__side__list {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.548) 0px 5px 15px;
+  gap: 30px;
+  top: 0;
+  right: -100%;
+  width: 250px;
+  padding: 30px;
+  height: 100vh;
+  z-index: 10;
+  transition: all 0.3s ease-in-out;
+  background-color: #3b3b3b;
+}
+header .nav-menu__side__burger {
   width: 24px;
   height: 24px;
   display: none;
 }
 @media screen and (max-width: 1050px) {
-  header .nav-menu__burger {
+  header .nav-menu__side__burger {
     display: initial;
   }
 }
