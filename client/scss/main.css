@@ -677,7 +677,6 @@ header .nav-menu__list__item {
 
 body {
   background-color: #2b2b2b;
-  overflow-x: hidden;
 }
 
 #hero {
@@ -2147,6 +2146,16 @@ body {
 #top-creators .top-creators__content {
   padding: 80px 0;
 }
+@media screen and (max-width: 1050px) {
+  #top-creators .top-creators__content {
+    padding: 40px 0;
+  }
+}
+@media screen and (max-width: 690px) {
+  #top-creators .top-creators__content {
+    padding: 30px 0;
+  }
+}
 #top-creators .top-creators__content__p {
   padding-top: 20px;
   color: #fff;
@@ -2155,6 +2164,41 @@ body {
   font-weight: 400;
   line-height: 160%;
   text-transform: capitalize;
+}
+@media screen and (max-width: 690px) {
+  #top-creators .top-creators__content__p {
+    padding-top: 10px;
+  }
+}
+@media screen and (max-width: 1050px) {
+  #top-creators .top-creators__content__p {
+    color: #fff;
+    font-family: "Work Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 140%;
+    text-transform: capitalize;
+  }
+}
+@media screen and (max-width: 1050px) {
+  #top-creators .top-creators__content__h2 {
+    color: #fff;
+    font-family: "Work Sans", sans-serif;
+    font-size: 38px;
+    font-weight: 600;
+    line-height: 120%;
+    text-transform: capitalize;
+  }
+}
+@media screen and (max-width: 690px) {
+  #top-creators .top-creators__content__h2 {
+    color: #fff;
+    font-family: "Work Sans", sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 120%;
+    text-transform: capitalize;
+  }
 }
 #top-creators .top-creators__content__time .active {
   border-bottom: 2px solid #858584;
@@ -2185,6 +2229,11 @@ body {
     font-size: 16px;
   }
 }
+@media screen and (max-width: 690px) {
+  #top-creators .top-creators__content__time .states__category h5 {
+    font-size: 14px;
+  }
+}
 #top-creators .top-creators__ranking-list {
   padding: 40px 0;
 }
@@ -2206,11 +2255,23 @@ body {
   line-height: 140%;
   text-transform: Capitilize;
 }
+@media screen and (max-width: 690px) {
+  #top-creators .top-creators__ranking-list__indicator p {
+    font-size: 12px;
+  }
+}
 #top-creators .top-creators__ranking-list__indicator__artist {
   display: flex;
   -moz-column-gap: 20px;
        column-gap: 20px;
   width: 430px;
+}
+@media screen and (max-width: 690px) {
+  #top-creators .top-creators__ranking-list__indicator__artist {
+    padding-right: 30px;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
 }
 #top-creators .top-creators__ranking-list__indicator__change {
   width: 500px;
@@ -2223,7 +2284,18 @@ body {
 #top-creators .top-creators__ranking-list__indicator__change p {
   width: 33.3333333333%;
 }
+@media screen and (max-width: 1050px) {
+  #top-creators .top-creators__ranking-list__indicator__change p:nth-child(2) {
+    display: none;
+  }
+}
+@media screen and (max-width: 690px) {
+  #top-creators .top-creators__ranking-list__indicator__change p:nth-child(1) {
+    display: none;
+  }
+}
 #top-creators .top-creators__ranking-list__items {
+  cursor: pointer;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -2241,8 +2313,21 @@ body {
 #top-creators .top-creators__ranking-list__items__item .percent {
   color: #00AC4F;
 }
+@media screen and (max-width: 690px) {
+  #top-creators .top-creators__ranking-list__items__item .volume {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
+  }
+}
 #top-creators .top-creators__ranking-list__items__item img {
   width: 60px;
+}
+@media screen and (max-width: 1050px) {
+  #top-creators .top-creators__ranking-list__items__item img {
+    width: 24px;
+  }
 }
 #top-creators .top-creators__ranking-list__items__item__info {
   display: flex;
@@ -2250,6 +2335,44 @@ body {
        column-gap: 20px;
   width: 430px;
   align-items: center;
+}
+@media screen and (max-width: 1050px) {
+  #top-creators .top-creators__ranking-list__items__item__info {
+    width: 410px;
+    -moz-column-gap: 12px;
+         column-gap: 12px;
+  }
+}
+@media screen and (max-width: 690px) {
+  #top-creators .top-creators__ranking-list__items__item__info {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+#top-creators .top-creators__ranking-list__items__item__info__user {
+  display: flex;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+@media screen and (max-width: 690px) {
+  #top-creators .top-creators__ranking-list__items__item__info__user {
+    -moz-column-gap: 10px;
+         column-gap: 10px;
+  }
+}
+@media screen and (max-width: 690px) {
+  #top-creators .top-creators__ranking-list__items__item__info__user h5 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 140%;
+  }
+}
+#top-creators .top-creators__ranking-list__items__item__info__user:hover {
+  transform: scale(0.95);
 }
 #top-creators .top-creators__ranking-list__items__item__info__number {
   display: flex;
@@ -2266,6 +2389,13 @@ body {
   line-height: 140%;
   text-transform: none;
 }
+@media screen and (max-width: 1050px) {
+  #top-creators .top-creators__ranking-list__items__item__info__number {
+    min-width: 24px;
+    height: 24px;
+    background-color: transparent;
+  }
+}
 #top-creators .top-creators__ranking-list__items__item__index {
   width: 500px;
   display: flex;
@@ -2274,6 +2404,28 @@ body {
        column-gap: 20px;
   justify-content: flex-end;
 }
+@media screen and (max-width: 690px) {
+  #top-creators .top-creators__ranking-list__items__item__index {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
 #top-creators .top-creators__ranking-list__items__item__index p {
   width: 33.3333333333%;
+}
+@media screen and (max-width: 690px) {
+  #top-creators .top-creators__ranking-list__items__item__index p {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+@media screen and (max-width: 1050px) {
+  #top-creators .top-creators__ranking-list__items__item__index p:nth-child(2) {
+    display: none;
+  }
+}
+@media screen and (max-width: 690px) {
+  #top-creators .top-creators__ranking-list__items__item__index p:nth-child(1) {
+    display: none;
+  }
 }/*# sourceMappingURL=main.css.map */

@@ -2,9 +2,30 @@
   .top-creators {
     &__content {
       padding: 80px 0;
+      @include for-size(tablet) {
+        padding: 40px 0;
+      }
+      @include for-size(mobile) {
+        padding: 30px 0;
+      }
       &__p {
         padding-top: 20px;
+        @include for-size(mobile) {
+            padding-top: 10px;
+          }
         @include text-formatter($--work, 22px, 400, 160%);
+        @include for-size(tablet) {
+          @include text-formatter($--work, 16px, 400, 140%);
+        }
+      }
+      &__h2 {
+        @include for-size(tablet) {
+            @include text-formatter($--work, 38px, 600, 120%);
+          }
+        @include for-size(mobile) {
+          @include text-formatter($--work, 28px, 600, 120%);
+        }
+
       }
 
       &__time {
@@ -25,6 +46,9 @@
               @include for-size(tablet) {
                 font-size: 16px;
               }
+              @include for-size(mobile) {
+                font-size: 14px;
+              }
             }
 
             padding: 12px 0;
@@ -39,6 +63,7 @@
     }
     &__ranking-list {
       padding: 40px 0;
+      
       &__indicator {
         height: 46px;
         align-items: center;
@@ -57,11 +82,22 @@
             Capitilize,
             $--caption-label-text
           );
+          
+            @include for-size(mobile) {
+                font-size: 12px;
+              }
+          
         }
+        
         &__artist {
           display: flex;
           column-gap: 20px;
           width: 430px;
+          @include for-size(mobile) {
+            padding-right: 30px;
+            width: fit-content;
+          }
+        
         }
         &__change {
           width: 500px;
@@ -71,60 +107,140 @@
           column-gap: 20px;
           p {
             width: calc(100% / 3);
+            &:nth-child(2) {
+              @include for-size(tablet) {
+                display: none;
+              }
+            }
+            &:nth-child(1) {
+              @include for-size(mobile) {
+                display: none;
+              }
+            }
           }
         }
       }
-      &__items{
+      &__items {
+        cursor: pointer;
+
         margin-top: 20px;
         display: flex;
         flex-direction: column;
         row-gap: 20px;
         &__item {
-            
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 12px 20px;
+          border-radius: 20px;
+          row-gap: 20px;
+          background: $--Background---Secondary;
+          .percent {
+            color: $--Green;
+          }
+          .volume {
+            @include for-size(mobile) {
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 110%;
+            }
+          }
+
+          img {
+            width: 60px;
+            @include for-size(tablet) {
+              width: 24px;
+            }
+          }
+          &__info {
             display: flex;
+            column-gap: 20px;
+
+            width: 430px;
             align-items: center;
-            justify-content: space-between;
-            padding: 12px 20px;
-            border-radius: 20px;
-            row-gap: 20px;
-            background: $--Background---Secondary;
-            .percent{
-                color: $--Green;
-              }
-    
-            img {
-              width: 60px;
+            @include for-size(tablet) {
+              width: 410px;
+              column-gap: 12px;
             }
-            &__info {
+            @include for-size(mobile) {
+              width: fit-content;
+            }
+            &__user {
               display: flex;
               column-gap: 20px;
-              width: 430px;
+
+              @include for-size(mobile) {
+                column-gap: 10px;
+              }
+
+              justify-content: center;
               align-items: center;
-              
-              &__number {
-                display: flex;
-                min-width: 30px;
-                height: 30px;
-                align-items: center;
-                justify-content: center;
-                border-radius: 20px;
-                background: $--Background;
-                @include text-formatter($--mono, 16px, 400, 140%,none,$--caption-label-text);
-    
+              transition: transform 0.3s ease;
+              h5 {
+                @include for-size(mobile) {
+                  font-size: 16px;
+                  font-weight: 400;
+                  line-height: 140%;
+                }
+              }
+              cursor: pointer;
+              &:hover {
+                transform: scale(0.95);
               }
             }
-            &__index {
-              width: 500px;
+            &__number {
               display: flex;
+              min-width: 30px;
+              height: 30px;
+             
               align-items: center;
-              column-gap: 20px;
-              justify-content: flex-end;
-    
-              p {
-                width: calc(100% / 3);
+              justify-content: center;
+              border-radius: 20px;
+              background: $--Background;
+              @include text-formatter(
+                $--mono,
+                16px,
+                400,
+                140%,
+                none,
+                $--caption-label-text
+              );
+              @include for-size(tablet) {
+                min-width: 24px;
+                height: 24px;
+                background-color: transparent;
               }
             }
           }
+          &__index {
+            width: 500px;
+            @include for-size(mobile) {
+              width: fit-content;
+            }
+            display: flex;
+            align-items: center;
+            column-gap: 20px;
+            justify-content: flex-end;
+
+            p {
+              width: calc(100% / 3);
+              @include for-size(mobile) {
+                width: fit-content;
+              }
+              &:nth-child(2) {
+                @include for-size(tablet) {
+                  display: none;
+                }
+              }
+              &:nth-child(1) {
+                @include for-size(mobile) {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
