@@ -1,23 +1,61 @@
 const user=document.getElementsByClassName("user")[0]
 const cardContainer=document.getElementsByClassName("discover__cards")[0]
 const created=document.getElementsByClassName("states__category__number number")[0]
+const loader = document.getElementsByClassName("scene")[0];
+console.log(loader);
+// const artistBody = document.getElementById("artistBody");
+const artistSections = document.getElementsByTagName("section");
+
+console.log(artistSections)
+const header = document.getElementsByTagName("header")[0];
+const footer = document.getElementsByTagName("footer")[0];
 let searcParams = new URLSearchParams(window.location.search);
 
 let paramsArtistId = searcParams.get("artist_id");
 
 
 
+function showLoader(isLoaded) {
+  if (isLoaded) {
+    loader.style.display = "initial";
 
+    footer.style.display = "none";
+    header.style.display = "none";
+
+    Array.from(artistSections).forEach((element) => {
+      element.style.opacity = "0";
+      element.style.visibility = "none;";
+    });
+  } else {
+    loader.style.display = "none";
+    Array.from(artistSections).forEach((element) => {
+      element.style.opacity = "1";
+      element.style.visibility = "visible;";
+    });
+    footer.style.display = "initial";
+    header.style.display = "block";
+  }
+}
 function getArtist(id) {
+  try {
+    
+  showLoader(true);
   fetch(`http://localhost:3000/api/creators/${id}`)
     .then((res) => res.json())
     .then((data) => {
       fillArtistPage(data);
       console.log(data);
     })
-    .finally(() => {});
+    .finally(() => {});}
+    catch (error) {
+    
+    }finally{
+      setTimeout(x=>showLoader(false),3000)
+    }
 }
 getArtist(paramsArtistId);
+
+
 
 function fillArtistPage(data){
 let userInfo=document.createElement("div")
@@ -124,7 +162,6 @@ Toastify({
 
 
 created.textContent=data.nfts.length 
-
 
 
 
