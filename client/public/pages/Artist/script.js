@@ -1,19 +1,17 @@
-const user=document.getElementsByClassName("user")[0]
-const cardContainer=document.getElementsByClassName("discover__cards")[0]
-const created=document.getElementsByClassName("states__category__number number")[0]
+const user = document.getElementsByClassName("user")[0];
+const cardContainer = document.getElementsByClassName("discover__cards")[0];
+const created = document.getElementsByClassName(
+  "states__category__number number"
+)[0];
 const loader = document.getElementsByClassName("scene")[0];
-console.log(loader);
-// const artistBody = document.getElementById("artistBody");
+
 const artistSections = document.getElementsByTagName("section");
 
-console.log(artistSections)
 const header = document.getElementsByTagName("header")[0];
 const footer = document.getElementsByTagName("footer")[0];
 let searcParams = new URLSearchParams(window.location.search);
 
 let paramsArtistId = searcParams.get("artist_id");
-
-
 
 function showLoader(isLoaded) {
   if (isLoaded) {
@@ -32,36 +30,32 @@ function showLoader(isLoaded) {
       element.style.opacity = "1";
       element.style.visibility = "visible;";
     });
-    footer.style.display = "initial";
+    footer.style.display = "flex";
     header.style.display = "block";
   }
 }
 function getArtist(id) {
   try {
-    
-  showLoader(true);
-  fetch(`http://localhost:3000/api/creators/${id}`)
-    .then((res) => res.json())
-    .then((data) => {
-      fillArtistPage(data);
-      console.log(data);
-    })
-    .finally(() => {});}
-    catch (error) {
-    
-    }finally{
-      setTimeout(x=>showLoader(false),3000)
-    }
+    showLoader(true);
+    fetch(`http://localhost:3000/api/creators/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        fillArtistPage(data);
+        console.log(data);
+      })
+      .finally(() => {});
+  } catch (error) {
+  } finally {
+    setTimeout((x) => showLoader(false), 3000);
+  }
 }
 getArtist(paramsArtistId);
 
-
-
-function fillArtistPage(data){
-let userInfo=document.createElement("div")
-userInfo.classList.add('user__info')
-userInfo.classList.add("container")
-userInfo.innerHTML +=`
+function fillArtistPage(data) {
+  let userInfo = document.createElement("div");
+  userInfo.classList.add("user__info");
+  userInfo.classList.add("container");
+  userInfo.innerHTML += `
 <div class="user__info__avatar">
           <img
           class="user__info__avatar__img"
@@ -79,7 +73,10 @@ userInfo.innerHTML +=`
                     src="../../imgs/icons/copy.svg"
                     alt=""
                   />
-                  <p>${data.chainId.substring(0,6)}...${data.chainId.substring(data.chainId.length-4,data.chainId.length)} </p>
+                  <p>${data.chainId.substring(0, 6)}...${data.chainId.substring(
+    data.chainId.length - 4,
+    data.chainId.length
+  )} </p>
                 </a>
                 <a href="./" class="user__info__content__detail__buttons__follow secondary">
                   <img
@@ -96,19 +93,26 @@ userInfo.innerHTML +=`
              
               <div class="user__info__content__left__count">
                 <div class="user__info__content__left__count__col">
-                  <p class="user__info__content__left__count__col__number heading-fourth-mono">${data.volume.substring(0, data.volume.length-3)}k+</p>
+                  <p class="user__info__content__left__count__col__number heading-fourth-mono">${data.volume.substring(
+                    0,
+                    data.volume.length - 3
+                  )}k+</p>
                   <p class="user__info__content__left__count__col__value">
                     Volume
                   </p>
                 </div>
                 <div class="user__info__content__left__count__col">
-                  <p class="user__info__content__left__count__col__number heading-fourth-mono">${data.nftSold}+</p>
+                  <p class="user__info__content__left__count__col__number heading-fourth-mono">${
+                    data.nftSold
+                  }+</p>
                   <p class="user__info__content__left__count__col__value">
                     NFTs Sold
                   </p>
                 </div>
                 <div class="user__info__content__left__count__col">
-                  <p class="user__info__content__left__count__col__number heading-fourth-mono">${data.followers}+</p>
+                  <p class="user__info__content__left__count__col__number heading-fourth-mono">${
+                    data.followers
+                  }+</p>
                   <p class="user__info__content__left__count__col__value">
                     Followers
                   </p>
@@ -141,32 +145,29 @@ userInfo.innerHTML +=`
             </div>
          
           </div>
-`
-user.appendChild(userInfo)
-const copyButton=document.getElementsByClassName("user__info__content__detail__buttons__copy")[0];
-copyButton.addEventListener("click",()=>{
-navigator.clipboard.writeText(data.chainId)
-Toastify({
-    text: `Copied to clipboard`,
-    duration: 1000,
-    gravity: "top",
-    position: "right",
-    style: {
+`;
+  user.appendChild(userInfo);
+  const copyButton = document.getElementsByClassName(
+    "user__info__content__detail__buttons__copy"
+  )[0];
+  copyButton.addEventListener("click", () => {
+    navigator.clipboard.writeText(data.chainId);
+    Toastify({
+      text: `Copied to clipboard`,
+      duration: 1000,
+      gravity: "top",
+      position: "right",
+      style: {
         fontFamily: "Work Sans",
-      background: "linear-gradient(128deg, #a259ff 49.75%, #377df7 136.56%)",
-    },
-  }).showToast();
+        background: "linear-gradient(128deg, #a259ff 49.75%, #377df7 136.56%)",
+      },
+    }).showToast();
+  });
 
-})
+  created.textContent = data.nfts.length;
 
-
-
-created.textContent=data.nfts.length 
-
-
-
-data.nfts?.forEach(nft => {
-  cardContainer.innerHTML+=`
+  data.nfts?.forEach((nft) => {
+    cardContainer.innerHTML += `
   <a  class="discover__cards__card">
   <img
     class="discover__cards__card__img"
@@ -192,7 +193,6 @@ data.nfts?.forEach(nft => {
   </div>
 </a>
 
-  `
-});
-
+  `;
+  });
 }
