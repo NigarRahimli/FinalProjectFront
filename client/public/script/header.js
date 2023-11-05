@@ -1,6 +1,7 @@
 const burger = document.querySelector(".nav-menu__side__burger");
 const body = document.querySelector("body");
 const side = document.getElementsByClassName("nav-menu__side__list")[0];
+burger.style.cursor="pointer";  
 burger.addEventListener("click", (event) => {
   event.stopPropagation();
   side.style.right = "0";

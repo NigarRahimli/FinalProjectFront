@@ -25,20 +25,17 @@
       }
     }
     &__info {
-       
-      &__avatar{
-        margin-top: -70px;  
+      &__avatar {
+        margin-top: -70px;
         &__img {
-           
-            border-radius: 20px;
-            border: 2px solid $--Background;
-          
-          }
-          @include for-size(mobile) {
-            display: flex;
-            justify-content: center;
-            border: 2px solid $--Background;
-          }
+          border-radius: 50%;
+          border: 2px solid $--Background;
+        }
+        @include for-size(mobile) {
+          display: flex;
+          justify-content: center;
+          border: 2px solid $--Background;
+        }
       }
       &__content {
         display: flex;
@@ -46,9 +43,8 @@
         padding: 40px 0;
         column-gap: 100px;
         @include for-size(tablet) {
-        padding: 30px 0;
-
-          }
+          padding: 30px 0;
+        }
         &__left {
           display: flex;
           flex-direction: column;
@@ -60,7 +56,14 @@
           h5 {
             color: $--caption-label-text;
             @include for-size(tablet) {
-              @include text-formatter($--mono, 16px, 400, 140%,capitalize,$--caption-label-text);
+              @include text-formatter(
+                $--mono,
+                16px,
+                400,
+                140%,
+                capitalize,
+                $--caption-label-text
+              );
             }
           }
           &__bio {
@@ -90,8 +93,8 @@
             column-gap: 20px;
             width: 510px;
             @include for-size(tablet) {
-                width: 100%;
-              }
+              width: 100%;
+            }
             &__col {
               width: 100%;
               &__value {
@@ -122,16 +125,16 @@
               @include text-formatter($--work, 38px, 600, 120%);
             }
             @include for-size(mobile) {
-               width: 100%;
-              }
+              width: 100%;
+            }
           }
           &__buttons {
             display: flex;
             gap: 20px;
             @include for-size(mobile) {
-               display: flex;
-               flex-direction: column;
-              }
+              display: flex;
+              flex-direction: column;
+            }
             &__copy {
               width: 186px;
               text-align: center;
@@ -162,8 +165,8 @@
       h5 {
         color: $--caption-label-text;
         @include for-size(tablet) {
-            font-size: 16px;
-          }
+          font-size: 16px;
+        }
       }
 
       padding: 12px 0;
@@ -181,13 +184,12 @@
         background: var(--Background---Secondary, #3b3b3b);
         @include text-formatter($--mono, 16px, 400, 140%);
         @include for-size(tablet) {
-            font-size: 12px;
-            line-height: 110%;
-          }
-          @include for-size(mobile) {
-            display: none;
-          }
-        
+          font-size: 12px;
+          line-height: 110%;
+        }
+        @include for-size(mobile) {
+          display: none;
+        }
       }
     }
   }

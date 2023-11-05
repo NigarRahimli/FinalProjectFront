@@ -365,18 +365,16 @@ body {
 // ---------
 
 #browse {
-
   .browse {
     padding: 80px 0;
     &__cards {
-
       display: grid;
-      grid-template-columns: repeat(4, auto);   
+      grid-template-columns: repeat(4, auto);
       padding-top: 60px;
       gap: 30px;
-      
+
       @include for-size(mobile) {
-        grid-template-columns: repeat(2, auto);  
+        grid-template-columns: repeat(2, auto);
       }
       a {
         transition: transform 0.3s ease;
@@ -386,17 +384,15 @@ body {
         }
       }
       &__card {
-        
         background-color: $--Background---Secondary;
         border-radius: 20px;
-        img{
+        img {
           @include for-size(tablet) {
-            width:150px ;
-            height:142px ;
+            width: 150px;
+            height: 142px;
           }
-
         }
-       
+
         &__text {
           padding: 20px 30px 25px 30px;
           width: 100%;
@@ -529,23 +525,23 @@ body {
 }
 // -----------------
 
-#magic {
+#magics {
   width: 100%;
   background: linear-gradient(180deg, rgba(162, 89, 255, 0) 0%, #a259ff 100%),
-    url(../../public/imgs/photos/mushroom.png);
+    url(../public/imgs/photos/mushroom.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
   @include for-size(tablet) {
     background: linear-gradient(180deg, rgba(162, 89, 255, 0) 0%, #a259ff 100%),
-      url(../../public/imgs/photos/small-mushroom.png);
+      url(../public/imgs/photos/small-mushroom.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
   }
   @include for-size(mobile) {
     background: linear-gradient(180deg, rgba(162, 89, 255, 0) 0%, #a259ff 100%),
-      url(../../public/imgs/photos/small-small-mushroom.png);
+      url(../public/imgs/photos/small-small-mushroom.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;

@@ -341,6 +341,159 @@ table {
   text-transform: capitalize;
 }
 
+.scene {
+  position: fixed;
+  display: none;
+  z-index: 2;
+  height: 275px;
+  width: 275px;
+  top: 60%;
+  left: 45%;
+  transform: translate(-50%, -60%);
+}
+
+.cube-wrapper {
+  transform-style: preserve-3d;
+  animation: bouncing 2s infinite;
+}
+
+.cube {
+  transform-style: preserve-3d;
+  transform: rotateX(45deg) rotateZ(45deg);
+  animation: rotation 2s infinite;
+}
+
+.cube-faces {
+  transform-style: preserve-3d;
+  height: 100px;
+  width: 100px;
+  position: relative;
+  transform-origin: 0 0;
+  transform: translateX(0) translateY(0) translateZ(-50px);
+}
+
+.cube-face {
+  position: absolute;
+  inset: 0;
+  background: #a259ff;
+  border: solid 1px #3b3b3b;
+}
+.cube-face.shadow {
+  transform: translateZ(-100px);
+  animation: bouncing-shadow 2s infinite;
+}
+.cube-face.top {
+  transform: translateZ(100px);
+}
+.cube-face.front {
+  transform-origin: 0 50%;
+  transform: rotateY(-90deg);
+}
+.cube-face.back {
+  transform-origin: 0 50%;
+  transform: rotateY(-90deg) translateZ(-100px);
+}
+.cube-face.right {
+  transform-origin: 50% 0;
+  transform: rotateX(-90deg) translateY(-100px);
+}
+.cube-face.left {
+  transform-origin: 50% 0;
+  transform: rotateX(-90deg) translateY(-100px) translateZ(100px);
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotateX(45deg) rotateY(0) rotateZ(45deg);
+    animation-timing-function: cubic-bezier(0.17, 0.84, 0.44, 1);
+  }
+  50% {
+    transform: rotateX(45deg) rotateY(0) rotateZ(225deg);
+    animation-timing-function: cubic-bezier(0.76, 0.05, 0.86, 0.06);
+  }
+  100% {
+    transform: rotateX(45deg) rotateY(0) rotateZ(405deg);
+    animation-timing-function: cubic-bezier(0.17, 0.84, 0.44, 1);
+  }
+}
+@keyframes bouncing {
+  0% {
+    transform: translateY(-50px);
+    animation-timing-function: cubic-bezier(0.76, 0.05, 0.86, 0.06);
+  }
+  45% {
+    transform: translateY(50px);
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  100% {
+    transform: translateY(-50px);
+    animation-timing-function: cubic-bezier(0.76, 0.05, 0.86, 0.06);
+  }
+}
+@keyframes bouncing-shadow {
+  0% {
+    transform: translateZ(-100px) scale(1.3);
+    animation-timing-function: cubic-bezier(0.76, 0.05, 0.86, 0.06);
+    opacity: 0.05;
+  }
+  45% {
+    transform: translateZ(0);
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateZ(-100px) scale(1.3);
+    animation-timing-function: cubic-bezier(0.76, 0.05, 0.86, 0.06);
+    opacity: 0.05;
+  }
+}
+.cards {
+  display: flex;
+}
+
+.card {
+  width: 300px;
+  height: 466.8px;
+  background: #2b2b2b;
+  border-radius: 20px;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+.card .image img {
+  border-radius: 20px;
+  max-width: 100%;
+}
+.card .content {
+  padding: 20px 30px;
+}
+
+.card.is-loading .image,
+.card.is-loading h2,
+.card.is-loading p {
+  background: #eee;
+  background: linear-gradient(110deg, #444444 8%, rgb(82, 80, 80) 18%, #444444 33%);
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
+.card.is-loading .image {
+  height: 296px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.card.is-loading h2 {
+  height: 30px;
+  margin-bottom: 7px;
+}
+.card.is-loading p {
+  height: 70px;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
 footer {
   background-color: #3b3b3b;
   padding: 40px 0;
@@ -1326,30 +1479,30 @@ body {
   padding-bottom: 8px;
 }
 
-#magic {
+#magics {
   width: 100%;
-  background: linear-gradient(180deg, rgba(162, 89, 255, 0) 0%, #a259ff 100%), url(../../public/imgs/photos/mushroom.png);
+  background: linear-gradient(180deg, rgba(162, 89, 255, 0) 0%, #a259ff 100%), url(../public/imgs/photos/mushroom.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
 }
 @media screen and (max-width: 1050px) {
-  #magic {
-    background: linear-gradient(180deg, rgba(162, 89, 255, 0) 0%, #a259ff 100%), url(../../public/imgs/photos/small-mushroom.png);
+  #magics {
+    background: linear-gradient(180deg, rgba(162, 89, 255, 0) 0%, #a259ff 100%), url(../public/imgs/photos/small-mushroom.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
   }
 }
 @media screen and (max-width: 690px) {
-  #magic {
-    background: linear-gradient(180deg, rgba(162, 89, 255, 0) 0%, #a259ff 100%), url(../../public/imgs/photos/small-small-mushroom.png);
+  #magics {
+    background: linear-gradient(180deg, rgba(162, 89, 255, 0) 0%, #a259ff 100%), url(../public/imgs/photos/small-small-mushroom.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
   }
 }
-#magic .magic {
+#magics .magic {
   padding-top: 360px;
   padding-bottom: 60px;
   display: flex;
@@ -1357,36 +1510,36 @@ body {
   align-items: end;
 }
 @media screen and (max-width: 690px) {
-  #magic .magic {
+  #magics .magic {
     padding-top: 120px;
     padding-bottom: 40px;
   }
 }
-#magic .magic .addition {
+#magics .magic .addition {
   display: none;
 }
 @media screen and (max-width: 690px) {
-  #magic .magic .addition {
+  #magics .magic .addition {
     display: flex;
   }
 }
 @media screen and (max-width: 690px) {
-  #magic .magic {
+  #magics .magic {
     flex-direction: column;
     row-gap: 30px;
     align-items: start;
   }
-  #magic .magic .main {
+  #magics .magic .main {
     display: none;
   }
 }
-#magic .magic__left {
+#magics .magic__left {
   display: flex;
   flex-direction: column;
   row-gap: 30px;
 }
 @media screen and (max-width: 1050px) {
-  #magic .magic__left__text {
+  #magics .magic__left__text {
     color: #fff;
     font-family: "Work Sans", sans-serif;
     font-size: 38px;
@@ -1395,18 +1548,18 @@ body {
     text-transform: capitalize;
   }
 }
-#magic .magic__left__button {
+#magics .magic__left__button {
   width: -moz-fit-content;
   width: fit-content;
   color: #2b2b2b;
   background-color: #fff;
 }
 @media screen and (max-width: 690px) {
-  #magic .magic__left__button {
+  #magics .magic__left__button {
     width: 100%;
   }
 }
-#magic .magic__left__user {
+#magics .magic__left__user {
   display: flex;
   -moz-column-gap: 12px;
        column-gap: 12px;
@@ -1417,11 +1570,11 @@ body {
   width: -moz-fit-content;
   width: fit-content;
 }
-#magic .magic__left__user img {
+#magics .magic__left__user img {
   width: 24px;
   height: 24px;
 }
-#magic .magic__right {
+#magics .magic__right {
   padding: 30px;
   width: 295px;
   height: -moz-fit-content;
@@ -1433,16 +1586,16 @@ body {
   grid-column-end: auto;
 }
 @media screen and (max-width: 690px) {
-  #magic .magic__right {
+  #magics .magic__right {
     width: 100%;
   }
 }
-#magic .magic__right__time {
+#magics .magic__right__time {
   display: grid;
   grid-template-columns: repeat(5, auto);
   padding-top: 10px;
 }
-#magic .magic__right__time__number h3 {
+#magics .magic__right__time__number h3 {
   padding-bottom: 5px;
 }
 
@@ -1857,7 +2010,7 @@ body {
   margin-top: -70px;
 }
 #user-account .user__info__avatar__img {
-  border-radius: 20px;
+  border-radius: 50%;
   border: 2px solid #2b2b2b;
 }
 @media screen and (max-width: 690px) {

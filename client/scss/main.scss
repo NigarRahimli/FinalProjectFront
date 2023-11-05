@@ -9,11 +9,14 @@
 
 @import "./components/buttons";
 @import "./components/texts";
+@import "./components/loader";
+@import "./components/artistSkeleton";
 
 
 
 @import "./layout/footer";
 @import "./layout/header";
+
 
 @import "./pages-scss/home";
 @import "./pages-scss/register";

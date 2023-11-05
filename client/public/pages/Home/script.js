@@ -1,16 +1,44 @@
 const cardsContainer = document.getElementsByClassName("top__cards")[0];
+const loader = document.getElementsByClassName("scene")[0];
+const home = document.getElementById("home");
+const homeSections = document.getElementsByTagName("section");
+const header = document.getElementsByTagName("header")[0];
+const footer = document.getElementsByTagName("footer")[0];
+loader.style.display = "none";
+function showLoader(isLoaded) {
+  if (isLoaded) {
+    loader.style.display = "initial";
+
+    footer.style.display = "none";
+    header.style.display = "none";
+
+    Array.from(homeSections).forEach((element) => {
+      element.style.opacity = "0";
+      element.style.visibility = "none;";
+    });
+  } else {
+    loader.style.display = "none";
+    Array.from(homeSections).forEach((element) => {
+      element.style.opacity = "1";
+      element.style.visibility = "visible;";
+    });
+    footer.style.display = "initial";
+    header.style.display = "block";
+  }
+}
 
 function getProducts() {
-  fetch("http://localhost:3000/api/creators")
-    .then((res) => res.json())
-    .then((data) => {
-      if (data) {
+  try {
+    showLoader(true);
+    fetch("http://localhost:3000/api/creators")
+      .then((res) => res.json())
+      .then((data) => {
         fillCard(data);
-      } else {
-        console.log("no data");
-      }
-    })
-    .finally(() => {});
+      });
+  } catch (error) {
+  } finally {
+    setTimeout(() => showLoader(false), 5000);
+  }
 }
 getProducts();
 
