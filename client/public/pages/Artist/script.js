@@ -1,0 +1,161 @@
+const user=document.getElementsByClassName("user")[0]
+const cardContainer=document.getElementsByClassName("discover__cards")[0]
+const created=document.getElementsByClassName("states__category__number number")[0]
+let searcParams = new URLSearchParams(window.location.search);
+
+let paramsArtistId = searcParams.get("artist_id");
+
+
+
+
+function getArtist(id) {
+  fetch(`http://localhost:3000/api/creators/${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      fillArtistPage(data);
+      console.log(data);
+    })
+    .finally(() => {});
+}
+getArtist(paramsArtistId);
+
+function fillArtistPage(data){
+let userInfo=document.createElement("div")
+userInfo.classList.add('user__info')
+userInfo.classList.add("container")
+userInfo.innerHTML +=`
+<div class="user__info__avatar">
+          <img
+          class="user__info__avatar__img"
+          src="../../../../${data.profileImgPath}"
+          alt=""
+        />
+        </div>
+          <div class="user__info__content">
+            <div class="user__info__content__detail">
+              <h2 class="heading-second-work">${data.name}</h2>
+              <div class="user__info__content__detail__buttons">
+                <a  class="user__info__content__detail__buttons__copy secondary">
+                  <img
+                    class="user__info__content__detail__buttons__copy__icon"
+                    src="../../imgs/icons/copy.svg"
+                    alt=""
+                  />
+                  <p>${data.chainId.substring(0,6)}...${data.chainId.substring(data.chainId.length-4,data.chainId.length)} </p>
+                </a>
+                <a href="./" class="user__info__content__detail__buttons__follow secondary">
+                  <img
+                    class="user__info__content__detail__buttons__follow__icon"
+                    src="../../imgs/icons/plus.svg"
+                    alt=""
+                  />
+                  <p>Follow</p>
+                </a>
+              </div>
+            </div>
+            
+            <div class="user__info__content__left">
+             
+              <div class="user__info__content__left__count">
+                <div class="user__info__content__left__count__col">
+                  <p class="user__info__content__left__count__col__number heading-fourth-mono">${data.volume.substring(0, data.volume.length-3)}k+</p>
+                  <p class="user__info__content__left__count__col__value">
+                    Volume
+                  </p>
+                </div>
+                <div class="user__info__content__left__count__col">
+                  <p class="user__info__content__left__count__col__number heading-fourth-mono">${data.nftSold}+</p>
+                  <p class="user__info__content__left__count__col__value">
+                    NFTs Sold
+                  </p>
+                </div>
+                <div class="user__info__content__left__count__col">
+                  <p class="user__info__content__left__count__col__number heading-fourth-mono">${data.followers}+</p>
+                  <p class="user__info__content__left__count__col__value">
+                    Followers
+                  </p>
+                </div>
+              </div>
+              <div class="user__info__content__left__bio">
+                <h5 class="heading-fifth-mono">Bio</h5>
+                <p>${data.bio}</p>
+              </div>
+              <div class="user__info__content__left__link">
+                <h5 class="heading-fifth-mono">Links</h5>
+                <div class="user__info__content__left__link__icons">
+                  <a href="./">
+                    <img src="../../imgs/icons/internet.svg" alt=""
+                  /></a>
+                  <a href="./">
+                    <img src="../../imgs/icons/dicord_logo.svg" alt=""
+                  /></a>
+                  <a href="./"
+                    ><img src="../../imgs/icons/youtube_logo.svg" alt=""
+                  /></a>
+                  <a href="./">
+                    <img src="../../imgs/icons/twitter_logo.svg" alt=""
+                  /></a>
+                  <a href="./"
+                    ><img src="../../imgs/icons/instagram_logo.svg" alt=""
+                  /></a>
+                </div>
+              </div>
+            </div>
+         
+          </div>
+`
+user.appendChild(userInfo)
+const copyButton=document.getElementsByClassName("user__info__content__detail__buttons__copy")[0];
+copyButton.addEventListener("click",()=>{
+navigator.clipboard.writeText(data.chainId)
+Toastify({
+    text: `Copied to clipboard`,
+    duration: 1000,
+    gravity: "top",
+    position: "right",
+    style: {
+        fontFamily: "Work Sans",
+      background: "linear-gradient(128deg, #a259ff 49.75%, #377df7 136.56%)",
+    },
+  }).showToast();
+
+})
+
+
+
+created.textContent=data.nfts.length 
+
+
+
+
+data.nfts?.forEach(nft => {
+  cardContainer.innerHTML+=`
+  <a  class="discover__cards__card">
+  <img
+    class="discover__cards__card__img"
+    src="../../../../${nft.imgPath}"
+    alt=""
+  />
+  <div class="discover__cards__card__content">
+    <h5 class="heading-fifth-work">${nft.name}</h5>
+    <div class="discover__cards__card__content__dancer">
+      <img src="../../../../${data.profileImgPath}" alt="" />
+      <span class="base-mono">${data.name}</span>
+    </div>
+    <div class="discover__cards__card__content__records">
+      <div class="discover__cards__card__content__records__price">
+        <p class="caption-mono col-grey">Price</p>
+        <p class="base-mono">${nft.price?.value} ${nft.price?.currency}</p>
+      </div>
+      <div class="discover__cards__card__content__records__high">
+        <p class="caption-mono col-grey">Highest Bid</p>
+        <p class="base-mono">${nft.highestBid?.value} ${nft.highestBid?.currency}</p>
+      </div>
+    </div>
+  </div>
+</a>
+
+  `
+});
+
+}
