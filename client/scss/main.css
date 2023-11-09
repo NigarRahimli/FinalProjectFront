@@ -345,10 +345,10 @@ table {
   position: fixed;
   display: none;
   z-index: 2;
-  height: 275px;
-  width: 275px;
+  height: 220px;
+  width: 220px;
   top: 60%;
-  left: 45%;
+  left: 50%;
   transform: translate(-50%, -60%);
 }
 
@@ -365,11 +365,11 @@ table {
 
 .cube-faces {
   transform-style: preserve-3d;
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
   position: relative;
   transform-origin: 0 0;
-  transform: translateX(0) translateY(0) translateZ(-50px);
+  transform: translateX(0) translateY(0) translateZ(-40px);
 }
 
 .cube-face {
@@ -379,11 +379,11 @@ table {
   border: solid 1px #3b3b3b;
 }
 .cube-face.shadow {
-  transform: translateZ(-100px);
+  transform: translateZ(-80px);
   animation: bouncing-shadow 2s infinite;
 }
 .cube-face.top {
-  transform: translateZ(100px);
+  transform: translateZ(80px);
 }
 .cube-face.front {
   transform-origin: 0 50%;
@@ -391,15 +391,15 @@ table {
 }
 .cube-face.back {
   transform-origin: 0 50%;
-  transform: rotateY(-90deg) translateZ(-100px);
+  transform: rotateY(-90deg) translateZ(-80px);
 }
 .cube-face.right {
   transform-origin: 50% 0;
-  transform: rotateX(-90deg) translateY(-100px);
+  transform: rotateX(-90deg) translateY(-80px);
 }
 .cube-face.left {
   transform-origin: 50% 0;
-  transform: rotateX(-90deg) translateY(-100px) translateZ(100px);
+  transform: rotateX(-90deg) translateY(-80px) translateZ(80px);
 }
 
 @keyframes rotation {
@@ -418,21 +418,21 @@ table {
 }
 @keyframes bouncing {
   0% {
-    transform: translateY(-50px);
+    transform: translateY(-40px);
     animation-timing-function: cubic-bezier(0.76, 0.05, 0.86, 0.06);
   }
   45% {
-    transform: translateY(50px);
+    transform: translateY(40px);
     animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
   }
   100% {
-    transform: translateY(-50px);
+    transform: translateY(-40px);
     animation-timing-function: cubic-bezier(0.76, 0.05, 0.86, 0.06);
   }
 }
 @keyframes bouncing-shadow {
   0% {
-    transform: translateZ(-100px) scale(1.3);
+    transform: translateZ(-80px) scale(1.3);
     animation-timing-function: cubic-bezier(0.76, 0.05, 0.86, 0.06);
     opacity: 0.05;
   }
@@ -442,7 +442,7 @@ table {
     opacity: 0.3;
   }
   100% {
-    transform: translateZ(-100px) scale(1.3);
+    transform: translateZ(-80px) scale(1.3);
     animation-timing-function: cubic-bezier(0.76, 0.05, 0.86, 0.06);
     opacity: 0.05;
   }
@@ -494,6 +494,43 @@ table {
     background-position-x: -200%;
   }
 }
+.spinner {
+  position: absolute;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border-top: 4px solid #FFF;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  display: none;
+}
+.spinner::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border-left: 4px solid #a259ff;
+  border-bottom: 4px solid transparent;
+  animation: rotation 0.5s linear infinite reverse;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 footer {
   background-color: #3b3b3b;
   padding: 40px 0;
@@ -1228,6 +1265,7 @@ body {
   }
 }
 #top .top__cards {
+  position: relative;
   grid-area: 2/1/3/3;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1850,6 +1888,12 @@ body {
   -moz-column-gap: 60px;
        column-gap: 60px;
 }
+@media screen and (max-width: 1050px) {
+  #content .content {
+    -moz-column-gap: 40px;
+         column-gap: 40px;
+  }
+}
 @media screen and (max-width: 690px) {
   #content .content {
     flex-direction: column;
@@ -1918,7 +1962,13 @@ body {
   }
 }
 #content .content__account__button {
+  margin-top: 15px;
   width: 330px;
+}
+@media screen and (max-width: 1050px) {
+  #content .content__account__button {
+    width: 325px;
+  }
 }
 @media screen and (max-width: 690px) {
   #content .content__account__button {
@@ -1929,7 +1979,6 @@ body {
 #content .content__account__form {
   display: flex;
   flex-direction: column;
-  row-gap: 15px;
   padding-bottom: 30px;
 }
 @media screen and (max-width: 690px) {
@@ -1937,6 +1986,11 @@ body {
     width: 100%;
     align-items: center;
   }
+}
+#content .content__account__form p {
+  margin: 5px 5px 10px 10px;
+  height: 15px;
+  color: rgb(213, 37, 37);
 }
 #content .content__account__form div {
   display: flex;

@@ -295,6 +295,7 @@ body {
     }
 
     &__cards {
+      position: relative;
       grid-area: 2 / 1 / 3 / 3;
       @include for-size(mobile) {
         grid-area: 2 / 1 / 3 / 2;

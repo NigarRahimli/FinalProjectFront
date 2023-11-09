@@ -41,7 +41,6 @@ function getArtist(id) {
       .then((res) => res.json())
       .then((data) => {
         fillArtistPage(data);
-        console.log(data);
       })
       .finally(() => {});
   } catch (error) {

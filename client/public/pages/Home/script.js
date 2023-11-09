@@ -1,16 +1,40 @@
 const cardsContainer = document.getElementsByClassName("top__cards")[0];
 
-
+const spinner=document.getElementsByClassName("spinner")[0]
+function showSpinner(isWanted){
+  if (isWanted) {
+    spinner.style.display="inline-block";
+  }
+  else{
+    spinner.style.display="none"
+  }
+}
 function getProducts() {
-
+  try {
     fetch("http://localhost:3000/api/creators")
-      .then((res) => res.json())
-      .then((data) => {
-     
-          fillCard(data);
-          
-       
-      });
+    .then((res) => res.json())
+    .then((data) => {
+      
+      showSpinner(true);
+      
+    
+      fillCard(data);
+      showSpinner(false);   
+ 
+    
+      
+    });
+  } catch (error) {
+    
+
+
+  }
+  finally{
+    showSpinner(false);
+
+  }
+
+ 
  
 }
 getProducts();

@@ -2,7 +2,6 @@ const subScribeContainers = document.getElementsByClassName("subscribe");
 
 Array.from(subScribeContainers).forEach((element) => {
   const subscribeInput = element.getElementsByTagName("input")[0];
-  console.log(subscribeInput);
   const subscribeButton =
   element.getElementsByClassName("subscribe__button")[0];
   const emailRegex = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
@@ -10,7 +9,6 @@ Array.from(subScribeContainers).forEach((element) => {
   subscribeButton.addEventListener("click", () => {
       const emailValue = subscribeInput.value.trim();
     if (!emailValue) {
-  console.log(subscribeInput);
       Toastify({
         text: `Email is required to subsrcibe`,
         duration: 2000,

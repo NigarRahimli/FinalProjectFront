@@ -2,6 +2,10 @@
   .content {
     display: flex;
     column-gap: 60px;
+    @include for-size(tablet) {
+    column-gap: 40px;
+     
+    }
     @include for-size(mobile) {
       flex-direction: column;
       align-items: center;
@@ -44,7 +48,11 @@
         }
       }
       &__button {
+        margin-top: 15px;
         width: 330px;
+        @include for-size(tablet) {
+          width: 325px;
+        }
         @include for-size(mobile) {
           width: 315px;
           margin-bottom: 40px;
@@ -58,8 +66,12 @@
           width: 100%;
           align-items: center;
         }
-        row-gap: 15px;
         padding-bottom: 30px;
+        p{
+          margin: 5px 5px 10px 10px;
+          height: 15px;
+          color:rgb(213, 37, 37);
+        }
         div {
           display: flex;
           height: 46px;
@@ -71,6 +83,7 @@
           border: 1px solid $--caption-label-text;
           background: $--Text;
           text-align: center;
+         
           @include for-size(mobile) {
             width: 315px;
           }

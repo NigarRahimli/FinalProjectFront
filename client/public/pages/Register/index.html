@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
     <link rel="stylesheet" href="../../../scss/main.css" />
   </head>
   <body>
@@ -65,27 +69,39 @@
             Welcome! enter your details and start creating, collecting and
             selling NFTs.
           </p>
-          <form class="content__account__form" action="/register" method="post">
+          <form
+            id="register-form"
+            class="content__account__form"
+            action="/register"
+            method="post"
+          >
             <div class="content__account__form__name">
               <img src="../../imgs/icons/user.svg" alt="" />
-              <input type="text" placeholder="Username" required />
+              <input type="text" placeholder="Username" />
             </div>
+            <p class="caption-work"> Error</p>
             <div class="content__account__form__email">
               <img src="../../imgs/icons/envelope_simple.svg" alt="" />
-              <input type="email" placeholder="Email Address" required />
+              <input type="email" placeholder="Email Address" />
             </div>
+            <p class="caption-work">Error</p>
             <div class="content__account__form__pass">
               <img src="../../imgs/icons/lock_key.svg" alt="" />
-              <input type="password" placeholder="Password" required />
+              <input type="password" placeholder="Password" />
             </div>
+            <p class="caption-work">Error</p>
             <div class="content__account__form__c-pass">
               <img src="../../imgs/icons/lock_key.svg" alt="" />
-              <input type="password" placeholder="Confirm Password" required />
+              <input type="password" placeholder="Confirm Password" />
             </div>
+            <p class="caption-work">Error</p>
+            <button
+              type="submit"
+              class="submit-btn content__account__button tertiary"
+            >
+              Create account
+            </button>
           </form>
-          <a href="./" class="content__account__button tertiary"
-            >Create account</a
-          >
         </div>
       </div>
     </section>
@@ -153,8 +169,12 @@
         <p class="caption-work">Ⓒ NFT Market. Use this template freely.</p>
       </div>
     </footer>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <script src="../../script/header.js"></script>
     <script src="../../script/subscribe.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>
