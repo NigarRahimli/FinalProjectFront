@@ -7,6 +7,7 @@ const validateWithRegex = (text, pattern) => {
   return pattern.test(text);
 };
 
+
 registerForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   validateFormItems(e.target.children)
@@ -52,8 +53,7 @@ registerForm.addEventListener("submit", async (e) => {
       },
     }).showToast();
 
-    console.error(`Server returned error status: ${response.status}`);
-    console.error(`Error message from server: ${errorData?.error}`);
+
   }
   submitBtn.classList.remove("loading");
   submitBtn.disabled = false;
