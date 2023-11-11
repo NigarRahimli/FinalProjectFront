@@ -1,5 +1,23 @@
 #top-creators {
   .top-creators {
+    .volume-column {
+      @include for-size(mobile) {
+        margin-left: 105px;
+      }
+    }
+    .empty {
+      width: 20px;
+      @include for-size(tablet) {
+        width: 14px;
+      }
+    }
+    .top-creators-delete {
+      width: 20px;
+      cursor: pointer;
+      @include for-size(tablet) {
+        width: 14px;
+      }
+    }
     &__content {
       padding: 80px 0;
       @include for-size(tablet) {
@@ -11,8 +29,8 @@
       &__p {
         padding-top: 20px;
         @include for-size(mobile) {
-            padding-top: 10px;
-          }
+          padding-top: 10px;
+        }
         @include text-formatter($--work, 22px, 400, 160%);
         @include for-size(tablet) {
           @include text-formatter($--work, 16px, 400, 140%);
@@ -20,12 +38,11 @@
       }
       &__h2 {
         @include for-size(tablet) {
-            @include text-formatter($--work, 38px, 600, 120%);
-          }
+          @include text-formatter($--work, 38px, 600, 120%);
+        }
         @include for-size(mobile) {
           @include text-formatter($--work, 28px, 600, 120%);
         }
-
       }
 
       &__time {
@@ -63,7 +80,7 @@
     }
     &__ranking-list {
       padding: 40px 0;
-      
+
       &__indicator {
         height: 46px;
         align-items: center;
@@ -82,13 +99,12 @@
             Capitilize,
             $--caption-label-text
           );
-          
-            @include for-size(mobile) {
-                font-size: 12px;
-              }
-          
+
+          @include for-size(mobile) {
+            font-size: 12px;
+          }
         }
-        
+
         &__artist {
           display: flex;
           column-gap: 20px;
@@ -97,7 +113,6 @@
             padding-right: 30px;
             width: fit-content;
           }
-        
         }
         &__change {
           width: 500px;
@@ -193,7 +208,7 @@
               display: flex;
               min-width: 30px;
               height: 30px;
-             
+
               align-items: center;
               justify-content: center;
               border-radius: 20px;
@@ -210,6 +225,10 @@
                 min-width: 24px;
                 height: 24px;
                 background-color: transparent;
+              }
+              @include for-size(mobile) {
+                font-size: 12px;
+                line-height: 110%;
               }
             }
           }

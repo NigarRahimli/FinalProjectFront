@@ -77,7 +77,7 @@ function fillArtistPage(data) {
     data.chainId.length
   )} </p>
                 </a>
-                <a href="./" class="user__info__content__detail__buttons__follow secondary">
+                <a class="user__info__content__detail__buttons__follow secondary">
                   <img
                     class="user__info__content__detail__buttons__follow__icon"
                     src="../../imgs/icons/plus.svg"
