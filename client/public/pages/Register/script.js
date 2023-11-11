@@ -10,7 +10,7 @@ const validateWithRegex = (text, pattern) => {
 
 registerForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  validateFormItems(e.target.children)
+  if(validateFormItems(e.target.children)){
   const userData = {
     username: e.target.children[0].getElementsByTagName("input")[0].value,
     email: e.target.children[2].getElementsByTagName("input")[0].value,
@@ -58,7 +58,7 @@ registerForm.addEventListener("submit", async (e) => {
   submitBtn.classList.remove("loading");
   submitBtn.disabled = false;
   resetForms()
-});
+}});
 function validateFormItems(formItems) {
   let hasError = false;
   let nameInputElement = formItems[0].getElementsByTagName("input")[0];

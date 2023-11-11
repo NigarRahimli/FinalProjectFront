@@ -4,12 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
     <link rel="stylesheet" href="../../../scss/main.css" />
   </head>
   <body>
     <header>
       <div class="nav-container">
+        <a href="../Home/">
         <div class="logo">
           <img
             class="logo__img-icon"
@@ -18,15 +23,20 @@
           />
           <img class="logo__img-name" src="../../imgs/icons/logo.svg" alt="" />
         </div>
+      </a>
         <div class="nav-menu">
           <ul class="nav-menu__list">
-            <li><a class="nav-menu__list__item" href="">Marketplace</a></li>
-            <li><a class="nav-menu__list__item" href="">Rankings</a></li>
+            <li><a class="nav-menu__list__item" href="./">Marketplace</a></li>
+            <li>
+              <a class="nav-menu__list__item" href="../Ranking/"
+                >Rankings</a
+              >
+            </li>
             <li>
               <a class="nav-menu__list__item" href="">Connect a wallet</a>
             </li>
             <li>
-              <a href="" class="nav-menu__list__sign">
+              <a href="../../pages/Register/" class="nav-menu__list__sign">
                 <img src="../../imgs/icons/user.svg" alt="" />
                 <span>Sign Up</span>
               </a>
@@ -39,11 +49,11 @@
               class="nav-menu__side__burger"
             />
             <ul class="nav-menu__side__list">
-              <li><a href="#">Marketplace</a></li>
-              <li><a href="#">Rankings</a></li>
+              <li><a href="./">Marketplace</a></li>
+              <li><a href="../Ranking/">Rankings</a></li>
               <li><a href="#">Connect a wallet</a></li>
               <li>
-                <a href="" class="nav-menu__list__sign">
+                <a href="../Register/" class="nav-menu__list__sign">
                   <img src="../../imgs/icons/user.svg" alt="" />
                   <span>Sign Up</span>
                 </a>
@@ -55,38 +65,40 @@
     </header>
 
     <section id="search">
-        <div class="search container">
-            <h2 class="search__heading heading-second-work">Browse Marketplace</h2>
-            <p class="search__text ">Browse through more than 50k NFTs on the NFT Marketplace.</p>
-            <div class="search__bar">
-                <input class="search__bar__input" type="text" placeholder="Search your favourite NFTs" />
-                <img class="search__bar__img" src="../../imgs/icons/magnify_glass.svg" alt="" >
-            </div>
-         
+      <div class="search container">
+        <h2 class="search__heading heading-second-work">Browse Marketplace</h2>
+        <p class="search__text">
+          Browse through more than 50k NFTs on the NFT Marketplace.
+        </p>
+        <div class="search__bar">
+          <input
+            class="search__bar__input"
+            type="text"
+            placeholder="Search your favourite NFTs"
+          />
+          <img
+            class="search__bar__img"
+            src="../../imgs/icons/magnify_glass.svg"
+            alt=""
+          />
         </div>
-        <div class="states container">
-            <div class="states__category active">
-              <h5 class="heading-fifth-work heading">Nfts</h5>
-              <div class="states__category__number number">302</div>
-            </div>
-            <div class="states__category">
-              <h5 class="heading-fifth-work">Collections</h5>
-              <div class="states__category__number">67</div>
-            </div>
-      
-          </div>
-     </section>
+      </div>
+      <div class="states container">
+        <div class="states__category active">
+          <h5 class="heading-fifth-work heading">Nfts</h5>
+          <div class="states__category__number number">302</div>
+        </div>
+        <div class="states__category">
+          <h5 class="heading-fifth-work">Collections</h5>
+          <div class="states__category__number">67</div>
+        </div>
+      </div>
+    </section>
 
     <section id="card">
-        <div class="discover__cards container">
-        
-          
-        
-        </div>
-        <button  class="load-more secondary" >Load more</button>
-      </section>        
-   
-    
+      <div class="discover__cards container"></div>
+      <button class="load-more secondary">Load more</button>
+    </section>
 
     <footer>
       <div class="footer container">
@@ -134,7 +146,7 @@
             <p class="footer__content__join__p base-work">
               Get exclusive promotions & updates straight to your inbox.
             </p>
-            <div  class="subscribe">
+            <div class="subscribe">
               <input
                 type="email"
                 placeholder="Enter your email here"
@@ -152,7 +164,10 @@
       </div>
     </footer>
     <script src="../../script/header.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <script src="../../script/subscribe.js"></script>
     <script src="./script.js"></script>
   </body>
