@@ -7,58 +7,56 @@ const validateWithRegex = (text, pattern) => {
   return pattern.test(text);
 };
 
-
 registerForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  if(validateFormItems(e.target.children)){
-  const userData = {
-    username: e.target.children[0].getElementsByTagName("input")[0].value,
-    email: e.target.children[2].getElementsByTagName("input")[0].value,
-    password: e.target.children[4].getElementsByTagName("input")[0].value,
-  };
-  const submitBtn = e.target.querySelector(".submit-btn");
-  submitBtn.classList.add("loading");
-  submitBtn.disabled = true;
+  if (validateFormItems(e.target.children)) {
+    const userData = {
+      username: e.target.children[0].getElementsByTagName("input")[0].value,
+      email: e.target.children[2].getElementsByTagName("input")[0].value,
+      password: e.target.children[4].getElementsByTagName("input")[0].value,
+    };
+    const submitBtn = e.target.querySelector(".submit-btn");
+    submitBtn.classList.add("loading");
+    submitBtn.disabled = true;
 
-  const response = await fetch("http://localhost:3000/api/register", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(userData),
-  });
-
-  if (response.status === 200) {
-    Toastify({
-      text: "Registration is successful!",
-      duration: 3000,
-      gravity: "top",
-      position: "right",
-      style: {
-        fontFamily: "Work Sans",
-        background: "rgb(119, 187, 34)",
+    const response = await fetch("http://localhost:3000/api/register", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
       },
-    }).showToast();
-  } else {
-    const errorData = await response.json();
-    Toastify({
-      text: errorData?.error,
-      duration: 3000,
-      gravity: "top",
-      position: "right",
-      style: {
-        fontFamily: "Work Sans",
-        background: "rgb(192, 36, 88)",
-      },
-    }).showToast();
+      body: JSON.stringify(userData),
+    });
 
-
+    if (response.status === 200) {
+      Toastify({
+        text: "Registration is successful!",
+        duration: 3000,
+        gravity: "top",
+        position: "right",
+        style: {
+          fontFamily: "Work Sans",
+          background: "rgb(119, 187, 34)",
+        },
+      }).showToast();
+      resetForms();
+    } else {
+      const errorData = await response.json();
+      Toastify({
+        text: errorData?.error,
+        duration: 3000,
+        gravity: "top",
+        position: "right",
+        style: {
+          fontFamily: "Work Sans",
+          background: "rgb(192, 36, 88)",
+        },
+      }).showToast();
+    }
+    submitBtn.classList.remove("loading");
+    submitBtn.disabled = false;
   }
-  submitBtn.classList.remove("loading");
-  submitBtn.disabled = false;
-  resetForms()
-}});
+});
 function validateFormItems(formItems) {
   let hasError = false;
   let nameInputElement = formItems[0].getElementsByTagName("input")[0];
@@ -90,7 +88,8 @@ function validateFormItems(formItems) {
     hasError = true;
   }
   if (!PASSWORD_REGEX.test(paswordElement.value)) {
-    paswordErrorElement.textContent = " Password must have 1 lowercase, 1 uppercase, 1 digit, 1 special character, and be 8-10 characters long!";
+    paswordErrorElement.textContent =
+      " Password must have 1 lowercase, 1 uppercase, 1 digit, 1 special character, and be 8-10 characters long!";
     hasError = true;
   }
 
@@ -98,11 +97,11 @@ function validateFormItems(formItems) {
     cpaswordErrorElement.textContent = " confirm password is required";
     hasError = true;
   }
-  if (cpaswordElement.value!== paswordElement.value) {
-    cpaswordErrorElement.textContent = " confirm password does not match with password";
+  if (cpaswordElement.value !== paswordElement.value) {
+    cpaswordErrorElement.textContent =
+      " confirm password does not match with password";
     hasError = true;
   }
-
 
   return !hasError;
 }

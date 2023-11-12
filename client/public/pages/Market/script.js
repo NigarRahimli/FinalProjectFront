@@ -1,7 +1,9 @@
 const cardContainer = document.querySelector(".discover__cards");
-let skip = 0; 
-const pageSize = 6; 
-let searchString="";
+const searchInput = document.getElementsByClassName("search__bar__input")[0];
+let skip = 0;
+let skipStr=0;
+const pageSize = 6;
+let searchString = "";
 
 function getNfts() {
   try {
@@ -20,22 +22,48 @@ function fetchNfts(skip) {
     body: JSON.stringify({
       skip: skip,
       pageSize: pageSize,
-      searchStr: searchString, 
     }),
   })
     .then((res) => res.json())
     .then((data) => {
       fillArtistPage(data);
     })
-    .finally(() => {
-    });
+    .finally(() => {});
+}
+let id = 0;
+
+searchInput.addEventListener("keyup", (e) => {
+  clearTimeout(id);
+  id = setTimeout(() => {
+    searchString = e.target.value;
+    fetchNftsforString(skipStr, searchString);
+  }, 2000);
+});
+function fetchNftsforString(skip, searchString) {
+  fetch(`http://localhost:3000/api/nfts`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      skip: skip,
+      pageSize: pageSize,
+      searchStr: searchString,
+    }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      cardContainer.innerHTML = "";
+      fillArtistPage(data);
+    })
+    .finally(() => {});
 }
 
 function fillArtistPage(data) {
-    if (!data.hasMore) {
-        document.querySelector(".load-more").disabled = true;
-    
-      }
+  if (!data.hasMore) {
+    document.querySelector(".load-more").disabled = true;
+  }
+console.log(data.hasMore);
 
   data.nfts.forEach((nft) => {
     const card = document.createElement("a");
@@ -64,12 +92,12 @@ function fillArtistPage(data) {
     cardContainer.appendChild(card);
   });
 
-  skip += pageSize; 
+  skip += pageSize;
 }
 
 document.querySelector(".load-more").addEventListener("click", () => {
   fetchNfts(skip);
-});
 
+});
 
 getNfts();

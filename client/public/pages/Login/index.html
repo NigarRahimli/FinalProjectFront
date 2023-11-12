@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
     <link rel="stylesheet" href="../../../scss/main.css" />
-
   </head>
   <body>
     <header>
@@ -21,13 +24,17 @@
         </div>
         <div class="nav-menu">
           <ul class="nav-menu__list">
-            <li><a class="nav-menu__list__item" href="../Market/">Marketplace</a></li>
-            <li><a class="nav-menu__list__item" href="../Ranking/">Rankings</a></li>
+            <li>
+              <a class="nav-menu__list__item" href="../Market/">Marketplace</a>
+            </li>
+            <li>
+              <a class="nav-menu__list__item" href="../Ranking/">Rankings</a>
+            </li>
             <li>
               <a class="nav-menu__list__item" href="">Connect a wallet</a>
             </li>
             <li>
-              <a href="" class="nav-menu__list__sign">
+              <a href="../Register/" class="nav-menu__list__sign">
                 <img src="../../imgs/icons/user.svg" alt="" />
                 <span>Sign Up</span>
               </a>
@@ -59,22 +66,37 @@
       <div class="content login">
         <img class="content__img" src="../../imgs/photos/space.png" alt="" />
         <div class="content__account">
-          <h2 class="content__account__heading heading-second-work">Login to your account</h2>
+          <h2 class="content__account__heading heading-second-work">
+            Login to your account
+          </h2>
           <p class="content__account__text">
             Welcome! enter your details and start creating, collecting and
             selling NFTs.
           </p>
-          <form class="content__account__form" action="/login" method="post">
+          <form
+            class="content__account__form"
+            id="login-form"
+            action="/login"
+            method="post"
+          >
             <div class="content__account__form__name">
               <img src="../../imgs/icons/user.svg" alt="" />
-              <input type="text" placeholder="Username" required />
+              <input type="text" placeholder="Username" />
             </div>
+            <p class="caption-work"></p>
             <div class="content__account__form__pass">
               <img src="../../imgs/icons/lock_key.svg" alt="" />
-              <input type="password" placeholder="Password" required />
+              <input type="password" placeholder="Password" />
             </div>
+            <p class="caption-work"></p>
+            <button
+              type="submit"
+              class="content__account__button submit-btn tertiary"
+            >
+              <span class="spinner2"></span>
+              Login
+            </button>
           </form>
-          <a href="./" class="content__account__button tertiary">Login</a>
         </div>
       </div>
     </section>
@@ -131,7 +153,8 @@
                 placeholder="Enter your email here"
                 required
               />
-              <a class="subscribe__button secondary">
+
+              <a class="subscribe__button submit-btn secondary">
                 <img src="../../imgs/icons/envelope_simple.svg" alt="" />
                 <h3>Subscribe</h3>
               </a>
@@ -142,8 +165,12 @@
         <p class="caption-work">Ⓒ NFT Market. Use this template freely.</p>
       </div>
     </footer>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <script src="../../script/header.js"></script>
     <script src="../../script/subscribe.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>
