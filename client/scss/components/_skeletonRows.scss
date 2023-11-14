@@ -1,0 +1,58 @@
+.skeleton-rows {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  .skeleton-row {
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: translate3d(0px, 0px, 0px);
+    position: relative;
+    border-radius: 0.25rem;
+    height: 4.5rem;
+    overflow: hidden;
+    border-radius: 20px;
+    height: 84px;
+  }
+
+  .skeleton-row:nth-child(2) {
+    opacity: 0.9;
+  }
+
+  .skeleton-row:nth-child(3) {
+    opacity: 0.8;
+  }
+  .skeleton-row:nth-child(4) {
+    opacity: 0.5;
+  }
+  .skeleton-row:nth-child(5) {
+    opacity: 0.4;
+  }
+  .skeleton-row:nth-child(6) {
+    opacity: 0.3;
+  }
+
+  @keyframes bg-move {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .skeleton-row > div {
+    transform: translate3d(0px, 0px, 0px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.075) 30%,
+      rgba(255, 255, 255, 0.075) 40%,
+      rgba(255, 255, 255, 0) 80%
+    );
+    animation: bg-move 1.5s -0.75s ease infinite;
+  }
+}

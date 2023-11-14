@@ -25,7 +25,9 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/creators", (req, res) => {
-  res.status(200).json(creators);
+  setTimeout(() => {
+    res.status(200).json(creators);
+  }, 5000);
 });
 
 app.get("/api/creators/:id", (req, res) => {
@@ -79,16 +81,19 @@ app.post("/api/nfts", (req, res) => {
     const startIndex = skip ? skip : 0;
     const endIndex = startIndex + pageSize;
 
-    const filteredNFTS = nfts.filter((nft) =>
-      searchStr
-        ? nft.name.toLowerCase().includes(searchStr.toLowerCase())
-        : true
-    );
-    const nftsSlice = filteredNFTS.slice(startIndex, endIndex).map((nft) => ({
-      ...nft,
-      creator: creators.find((c) => c.id == nft.creatorId),
-      creatorId: undefined,
-    }));
+    const filteredNFTS = nfts
+      .filter((nft) =>
+        searchStr
+          ? nft.name.toLowerCase().includes(searchStr.toLowerCase())
+          : true
+      )
+      .map((nft) => ({
+        ...nft,
+        creator: creators.find((c) => c.id == nft.creatorId),
+        creatorId: undefined,
+      }))
+      .filter((nft) => nft.creator != undefined);
+    const nftsSlice = filteredNFTS.slice(startIndex, endIndex);
 
     res.status(200).json({
       hasMore: endIndex < filteredNFTS.length,

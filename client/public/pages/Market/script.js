@@ -1,7 +1,7 @@
 const cardContainer = document.querySelector(".discover__cards");
 const searchInput = document.getElementsByClassName("search__bar__input")[0];
 let skip = 0;
-let skipStr=0;
+let skipStr = 0;
 const pageSize = 6;
 let searchString = "";
 
@@ -63,7 +63,6 @@ function fillArtistPage(data) {
   if (!data.hasMore) {
     document.querySelector(".load-more").disabled = true;
   }
-console.log(data.hasMore);
 
   data.nfts.forEach((nft) => {
     const card = document.createElement("a");
@@ -97,7 +96,6 @@ console.log(data.hasMore);
 
 document.querySelector(".load-more").addEventListener("click", () => {
   fetchNfts(skip);
-
 });
 
 getNfts();

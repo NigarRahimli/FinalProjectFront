@@ -11,7 +11,16 @@ body {
   background-color: $--Background;
   // overflow-x: hidden;
 }
-
+.error {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.d-none {
+  display: none !important;
+}
 #hero {
   padding: 80px 0;
   @include for-size(mobile) {

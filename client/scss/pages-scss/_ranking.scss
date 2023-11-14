@@ -6,17 +6,24 @@
       }
     }
     .empty {
-      width: 20px;
-      @include for-size(tablet) {
-        width: 14px;
+      width: 26px;
+      @include for-size(mobile) {
+        width: 25px;
       }
     }
     .top-creators-delete {
+      margin: 5px;
       width: 20px;
       cursor: pointer;
+    
       @include for-size(tablet) {
         width: 14px;
       }
+      @include for-size(mobile) {
+        margin: 0;
+        
+      }
+      
     }
     &__content {
       padding: 80px 0;
@@ -91,6 +98,7 @@
         display: flex;
         justify-content: space-between;
         p {
+          cursor: pointer;
           @include text-formatter(
             $--mono,
             16px,
@@ -121,6 +129,7 @@
           justify-content: flex-end;
           column-gap: 20px;
           p {
+            cursor: pointer;
             width: calc(100% / 3);
             &:nth-child(2) {
               @include for-size(tablet) {
@@ -136,7 +145,6 @@
         }
       }
       &__items {
-        cursor: pointer;
 
         margin-top: 20px;
         display: flex;

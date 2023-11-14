@@ -4,26 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
     <link rel="stylesheet" href="../../../scss/main.css" />
   </head>
   <body>
     <header>
       <div class="nav-container">
-         <a href="../Home/">
-        <div class="logo">
-          <img
-            class="logo__img-icon"
-            src="../../imgs/icons/storefront.svg"
-            alt=""
-          />
-          <img class="logo__img-name" src="../../imgs/icons/logo.svg" alt="" />
-        </div>
+        <a href="../Home/">
+          <div class="logo">
+            <img
+              class="logo__img-icon"
+              src="../../imgs/icons/storefront.svg"
+              alt=""
+            />
+            <img
+              class="logo__img-name"
+              src="../../imgs/icons/logo.svg"
+              alt=""
+            />
+          </div>
         </a>
         <div class="nav-menu">
           <ul class="nav-menu__list">
-            <li><a class="nav-menu__list__item" href="../Market/">Marketplace</a></li>
-            <li><a class="nav-menu__list__item" href="../Ranking/">Rankings</a></li>
+            <li>
+              <a class="nav-menu__list__item" href="../Market/">Marketplace</a>
+            </li>
+            <li>
+              <a class="nav-menu__list__item" href="../Ranking/">Rankings</a>
+            </li>
             <li>
               <a class="nav-menu__list__item" href="">Connect a wallet</a>
             </li>
@@ -85,21 +97,26 @@
         <div class="top-creators__ranking-list">
           <div class="top-creators__ranking-list__indicator">
             <div class="top-creators__ranking-list__indicator__artist">
-              <p>#</p>
-              <p>Artist</p>
+              <p id="sort-id">#</p>
+              <p id="sort-name">Artist</p>
             </div>
             <div class="top-creators__ranking-list__indicator__change">
-              <p>Change</p>
-              <p>NFTs Sold</p>
-              <p class="volume-column" >Volume</p>
-              <p class="empty" ></p>
+              <p id="sort-change">Change</p>
+              <p id="sort-sold">NFTs Sold</p>
+              <p id="sort-volume" class="volume-column">Volume</p>
+              <p class="empty"></p>
             </div>
           </div>
           <div class="top-creators__ranking-list__items">
-           
-            
+            <div class="skeleton-rows">
+              <div class="skeleton-row"><div></div></div>
+              <div class="skeleton-row"><div></div></div>
+              <div class="skeleton-row"><div></div></div>
+              <div class="skeleton-row"><div></div></div>
+              <div class="skeleton-row"><div></div></div>
+              <div class="skeleton-row"><div></div></div>
+            </div>
           </div>
-          
         </div>
       </div>
     </div>
@@ -167,9 +184,12 @@
         <p class="caption-work">Ⓒ NFT Market. Use this template freely.</p>
       </div>
     </footer>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <script src="../../script/header.js"></script>
     <script src="../../script/subscribe.js"></script>
-    <script src="./script.js"> </script>
+    <script src="./script.js"></script>
   </body>
 </html>
