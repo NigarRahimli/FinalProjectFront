@@ -55,6 +55,16 @@ sortSold.addEventListener("click", () => {
   }
   clearAndFillRankingList(artists);
 });
+sortVolume.addEventListener("click", () => {
+  if (sortSold.classList.contains("clicked")) {
+    sortSold.classList.remove("clicked");
+    sortItems(artists, "volume", "asc");
+  } else {
+    sortSold.classList.add("clicked");
+    sortItems(artists, "volume", "desc");
+  }
+  clearAndFillRankingList(artists);
+});
 
 async function getArtists() {
   try {
