@@ -942,6 +942,30 @@ header .nav-menu__list__item {
   padding: 0 20px;
 }
 
+#error-content {
+  padding: 80px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#error-content h2 {
+  color: #858584;
+}
+@media screen and (max-width: 690px) {
+  #error-content h2 {
+    font-size: 25px;
+  }
+}
+#error-content img {
+  width: 300px;
+}
+@media screen and (max-width: 690px) {
+  #error-content img {
+    width: 200px;
+  }
+}
+
 .container {
   width: 1050px;
   margin: 0 auto;
@@ -2142,7 +2166,7 @@ body {
   border-bottom: 2px solid #858584;
 }
 #user-account .active .heading {
-  color: #fff;
+  color: #fff !important;
 }
 #user-account .active .number {
   background: #858584;
@@ -2353,6 +2377,7 @@ body {
   display: flex;
 }
 #user-account .states__category {
+  cursor: pointer;
   width: 33.3333333333%;
   justify-content: center;
   padding: 12px 0;
@@ -2423,9 +2448,17 @@ body {
   border-radius: 20px;
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
+  position: relative;
 }
 #card .discover__cards__card:hover {
   transform: scale(0.95);
+}
+#card .discover__cards__card .favorite-artist {
+  width: 24px;
+  position: absolute;
+  right: 22px;
+  top: 10px;
+  transition: all ease-in-out 0.2s;
 }
 #card .discover__cards__card__img {
   height: 296px;

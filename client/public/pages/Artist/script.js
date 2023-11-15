@@ -3,12 +3,21 @@ const cardContainer = document.getElementsByClassName("discover__cards")[0];
 const created = document.getElementsByClassName(
   "states__category__number number"
 )[0];
+const states = document.getElementsByClassName("states__category");
+
+Array.from(states).forEach((tab) => {
+  tab.addEventListener("click", () => {
+    Array.from(states).forEach((t) => t.classList.remove("active"));
+    tab.classList.add("active");
+  });
+});
 const loader = document.getElementsByClassName("scene")[0];
 
 const artistSections = document.getElementsByTagName("section");
 
 const header = document.getElementsByTagName("header")[0];
 const footer = document.getElementsByTagName("footer")[0];
+
 let searcParams = new URLSearchParams(window.location.search);
 
 let paramsArtistId = searcParams.get("artist_id");
@@ -34,20 +43,25 @@ function showLoader(isLoaded) {
     header.style.display = "block";
   }
 }
-function getArtist(id) {
+async function getArtist(id) {
   try {
     showLoader(true);
-    fetch(`http://localhost:3000/api/creators/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        fillArtistPage(data);
-      })
-      .finally(() => {});
+    const response = await fetch(`http://localhost:3000/api/creators/${id}`);
+
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    fillArtistPage(data);
   } catch (error) {
+    console.error(error);
+    window.location.href = "../notFound/";
   } finally {
-    setTimeout((x) => showLoader(false), 3000);
+    setTimeout(() => showLoader(false), 3000);
   }
 }
+
 getArtist(paramsArtistId);
 
 function fillArtistPage(data) {
@@ -173,6 +187,11 @@ function fillArtistPage(data) {
     src="../../../../${nft.imgPath}"
     alt=""
   />
+  <img
+    class="favorite-artist"
+    src="../../imgs/icons/heart-regular.svg"
+    alt=""
+  />
   <div class="discover__cards__card__content">
     <h5 class="heading-fifth-work">${nft.name}</h5>
     <div class="discover__cards__card__content__dancer">
@@ -193,5 +212,32 @@ function fillArtistPage(data) {
 </a>
 
   `;
+    const favorite = document.getElementsByClassName("favorite-artist");
+    let favorites = Array.from(favorite);
+    favorites.forEach((element) => {
+      element.addEventListener("mouseover", (event) => {
+        event.target.src = "../../imgs/icons/heart-full.svg";
+      });
+    });
+    favorites.forEach((element) => {
+      element.addEventListener("mouseleave", (event) => {
+        event.target.src = "../../imgs/icons/heart-regular.svg";
+      });
+    });
+    favorites.forEach((element) => {
+      element.addEventListener("click", (event) => {
+        Toastify({
+          text: `Added to favourite`,
+          duration: 1000,
+          gravity: "top",
+          position: "right",
+          style: {
+            fontFamily: "Work Sans",
+            background:
+              "linear-gradient(128deg, #a259ff 49.75%, #377df7 136.56%)",
+          },
+        }).showToast();
+      });
+    });
   });
 }

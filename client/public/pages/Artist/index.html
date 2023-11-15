@@ -4,24 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
     <link rel="stylesheet" href="../../../scss/main.css" />
   </head>
   <body>
     <header>
       <div class="nav-container">
-        <div class="logo">
-          <img
-            class="logo__img-icon"
-            src="../../imgs/icons/storefront.svg"
-            alt=""
-          />
-          <img class="logo__img-name" src="../../imgs/icons/logo.svg" alt="" />
-        </div>
+        <a href="../Home/">
+          <div class="logo">
+            <img
+              class="logo__img-icon"
+              src="../../imgs/icons/storefront.svg"
+              alt=""
+            />
+            <img
+              class="logo__img-name"
+              src="../../imgs/icons/logo.svg"
+              alt=""
+            />
+          </div>
+        </a>
         <div class="nav-menu">
           <ul class="nav-menu__list">
-            <li><a class="nav-menu__list__item" href="../Market/">Marketplace</a></li>
-            <li><a class="nav-menu__list__item" href="../Ranking/">Rankings</a></li>
+            <li>
+              <a class="nav-menu__list__item" href="../Market/">Marketplace</a>
+            </li>
+            <li>
+              <a class="nav-menu__list__item" href="../Ranking/">Rankings</a>
+            </li>
             <li>
               <a class="nav-menu__list__item" href="">Connect a wallet</a>
             </li>
@@ -40,10 +54,10 @@
             />
             <ul class="nav-menu__side__list">
               <li><a href="../Market/">Marketplace</a></li>
-              <li><a href="../Ranking/">Rankings</a></li>
+              <li><a href="./">Rankings</a></li>
               <li><a href="#">Connect a wallet</a></li>
               <li>
-                <a href="../Register/" class="nav-menu__list__sign">
+                <a href="../../pages/Register/" class="nav-menu__list__sign">
                   <img src="../../imgs/icons/user.svg" alt="" />
                   <span>Sign Up</span>
                 </a>
@@ -57,9 +71,7 @@
     <section id="user-account">
       <div class="user">
         <img class="user__img" src="../../imgs/photos/view.png" alt="" />
-        <div class="user__info container">
-   
-        </div>
+        <div class="user__info container"></div>
         <hr />
       </div>
       <div class="states container">
@@ -68,22 +80,18 @@
           <div class="states__category__number number">302</div>
         </div>
         <div class="states__category">
-          <h5 class="heading-fifth-work">Owned</h5>
-          <div class="states__category__number">67</div>
+          <h5 class="heading-fifth-work heading">Owned</h5>
+          <div class="states__category__number number">67</div>
         </div>
         <div class="states__category">
-          <h5 class="heading-fifth-work">Collection</h5>
-          <div class="states__category__number">4</div>
+          <h5 class="heading-fifth-work heading">Collection</h5>
+          <div class="states__category__number number">4</div>
         </div>
       </div>
     </section>
 
     <section id="card">
-      <div class="discover__cards container">
-      
-        
-      
-      </div>
+      <div class="discover__cards container"></div>
     </section>
     <div class="scene">
       <div class="cube-wrapper">
@@ -100,7 +108,6 @@
         </div>
       </div>
     </div>
-    
 
     <footer>
       <div class="footer container">
@@ -148,7 +155,7 @@
             <p class="footer__content__join__p base-work">
               Get exclusive promotions & updates straight to your inbox.
             </p>
-            <div  class="subscribe">
+            <div class="subscribe">
               <input
                 type="email"
                 placeholder="Enter your email here"
@@ -166,7 +173,10 @@
       </div>
     </footer>
     <script src="../../script/header.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <script src="./script.js"></script>
     <script src="../../script/subscribe.js"></script>
   </body>

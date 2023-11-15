@@ -3,7 +3,7 @@
     border-bottom: 2px solid $--caption-label-text;
 
     .heading {
-      color: $--Text;
+      color: $--Text!important;
     }
     .number {
       background: $--caption-label-text;
@@ -160,6 +160,7 @@
   .states {
     display: flex;
     &__category {
+      cursor: pointer;
       width: calc(100% / 3);
       justify-content: center;
       h5 {
@@ -214,10 +215,17 @@
       border-radius: 20px;
       transition: transform 0.3s ease-in-out;
       cursor: pointer;
+      position: relative;
       &:hover {
         transform: scale(0.95);
       }
-
+      .favorite-artist {
+        width: 24px;
+        position: absolute;
+        right: 22px;
+        top: 10px;
+        transition: all ease-in-out 0.2s;
+      }
       &__img {
         height: 296px;
       }

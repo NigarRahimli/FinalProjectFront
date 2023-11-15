@@ -1,0 +1,19 @@
+#error-content{
+    padding: 80px  0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    h2{
+        color: $--caption-label-text;
+        @include for-size(mobile){
+            font-size: 25px;
+        }
+    }
+img{
+    width: 300px;
+    @include for-size(mobile){
+       width: 200px;
+    }
+}
+}
