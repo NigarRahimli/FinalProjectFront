@@ -3,6 +3,9 @@ const cardContainer = document.getElementsByClassName("discover__cards")[0];
 const created = document.getElementsByClassName(
   "states__category__number number"
 )[0];
+const favoriteNumber = document.getElementsByClassName(
+  "states__category__number number"
+)[1];
 const states = document.getElementsByClassName("states__category");
 const favoriteBar = document.getElementById("favorite-bar");
 const createdBar = document.getElementById("created-bar");
@@ -67,6 +70,7 @@ async function getArtist(id) {
 getArtist(paramsArtistId);
 
 function fillArtistPage(data) {
+  fillFavoriteNumber(data.id);
   let userInfo = document.createElement("div");
   userInfo.classList.add("user__info");
   userInfo.classList.add("container");
@@ -188,7 +192,12 @@ function fillArtistPage(data) {
   function fillCreatedItems(data) {
     cardContainer.innerHTML = "";
     data.nfts?.forEach((nft) => {
-      console.log(nft);
+      const favorite = cardContainer.getElementsByClassName("favorite-artist");
+      const favoriteItems = getFavoriteItems();
+      let isFav = favoriteItems.some(
+        (favoriteItem) => favoriteItem.item.id === nft.id
+      );
+
       cardContainer.innerHTML += `
       <a  class="discover__cards__card">
       <img
@@ -198,7 +207,7 @@ function fillArtistPage(data) {
       />
       <img
         class="favorite-artist"
-        src="../../imgs/icons/heart-regular.svg"
+        src="../../imgs/icons/${isFav ? "heart-full.svg" : "heart-regular.svg"}"
         alt=""
       />
       <div class="discover__cards__card__content">
@@ -214,24 +223,25 @@ function fillArtistPage(data) {
           </div>
           <div class="discover__cards__card__content__records__high">
             <p class="caption-mono col-grey">Highest Bid</p>
-            <p class="base-mono">${nft.highestBid?.value} ${nft.highestBid?.currency}</p>
+            <p class="base-mono">${nft.highestBid?.value} ${
+        nft.highestBid?.currency
+      }</p>
           </div>
         </div>
       </div>
     </a>
   
       `;
-      const favorite = cardContainer.getElementsByClassName("favorite-artist");
       Array.from(favorite).forEach((element, index) => {
-        let isFavorite = false;
-
         element.addEventListener("click", (event) => {
-          isFavorite = !isFavorite;
+          isFav = !isFav;
           event.stopPropagation();
-          event.target.src = isFavorite
+
+          event.target.src = isFav
             ? "../../imgs/icons/heart-full.svg"
             : "../../imgs/icons/heart-regular.svg";
-          if (isFavorite) {
+
+          if (isFav) {
             addFavoriteItem(data.nfts[index]);
             Toastify({
               text: `Added to favourite`,
@@ -246,6 +256,7 @@ function fillArtistPage(data) {
             }).showToast();
           } else {
             removeFavoriteItem(data.nfts[index]);
+
             Toastify({
               text: `Removed from favorite`,
               duration: 1000,
@@ -304,6 +315,7 @@ function fillArtistPage(data) {
         element.addEventListener("click", (event) => {
           event.stopPropagation();
           removeFavoriteItem(data.nfts[index]);
+
           event.target.parentElement.remove();
 
           Toastify({
@@ -321,7 +333,6 @@ function fillArtistPage(data) {
       });
     });
   }
-  console.log(data);
   favoriteBar.addEventListener("click", () => {
     if (localStorage.getItem("favorite") === null) {
       console.log("No favorite items");
@@ -346,6 +357,7 @@ function addFavoriteItem(item, creatorId) {
   favoriteItems.push({ creatorId: creatorId, item });
 
   localStorage.setItem("favorite", JSON.stringify(favoriteItems));
+  fillFavoriteNumber(item.creatorId);
 }
 function removeFavoriteItem(item) {
   let favoriteItems = getFavoriteItems();
@@ -353,8 +365,15 @@ function removeFavoriteItem(item) {
   favoriteItems = favoriteItems.filter((i) => i.item.id !== item.id);
 
   localStorage.setItem("favorite", JSON.stringify(favoriteItems));
+  fillFavoriteNumber(item.creatorId);
 }
 
 function getFavoriteItems() {
   return JSON.parse(localStorage.getItem("favorite")) ?? [];
+}
+function fillFavoriteNumber(artistId) {
+  console.log(artistId);
+  favoriteNumber.innerHTML = getFavoriteItems().filter(
+    (x) => x.item.creatorId == +artistId
+  ).length;
 }
