@@ -4,6 +4,8 @@ const created = document.getElementsByClassName(
   "states__category__number number"
 )[0];
 const states = document.getElementsByClassName("states__category");
+const favoriteBar = document.getElementById("favorite-bar");
+const createdBar = document.getElementById("created-bar");
 
 Array.from(states).forEach((tab) => {
   tab.addEventListener("click", () => {
@@ -69,96 +71,100 @@ function fillArtistPage(data) {
   userInfo.classList.add("user__info");
   userInfo.classList.add("container");
   userInfo.innerHTML += `
-<div class="user__info__avatar">
-          <img
-          class="user__info__avatar__img"
-          src="../../../../${data.profileImgPath}"
-          alt=""
-        />
-        </div>
-          <div class="user__info__content">
-            <div class="user__info__content__detail">
-              <h2 class="heading-second-work">${data.name}</h2>
-              <div class="user__info__content__detail__buttons">
-                <a  class="user__info__content__detail__buttons__copy secondary">
-                  <img
-                    class="user__info__content__detail__buttons__copy__icon"
-                    src="../../imgs/icons/copy.svg"
-                    alt=""
-                  />
-                  <p>${data.chainId.substring(0, 6)}...${data.chainId.substring(
+  <div class="user__info__avatar">
+            <img
+            class="user__info__avatar__img"
+            src="../../../../${data.profileImgPath}"
+            alt=""
+          />
+          </div>
+            <div class="user__info__content">
+              <div class="user__info__content__detail">
+                <h2 class="heading-second-work">${data.name}</h2>
+                <div class="user__info__content__detail__buttons">
+                  <a  class="user__info__content__detail__buttons__copy secondary">
+                    <img
+                      class="user__info__content__detail__buttons__copy__icon"
+                      src="../../imgs/icons/copy.svg"
+                      alt=""
+                    />
+                    <p>${data.chainId.substring(
+                      0,
+                      6
+                    )}...${data.chainId.substring(
     data.chainId.length - 4,
     data.chainId.length
   )} </p>
-                </a>
-                <a class="user__info__content__detail__buttons__follow secondary">
-                  <img
-                    class="user__info__content__detail__buttons__follow__icon"
-                    src="../../imgs/icons/plus.svg"
-                    alt=""
-                  />
-                  <p>Follow</p>
-                </a>
+                  </a>
+                  <a class="user__info__content__detail__buttons__follow secondary">
+                    <img
+                      class="user__info__content__detail__buttons__follow__icon"
+                      src="../../imgs/icons/plus.svg"
+                      alt=""
+                    />
+                    <p>Follow</p>
+                  </a>
+                </div>
               </div>
+              
+              <div class="user__info__content__left">
+              
+                <div class="user__info__content__left__count">
+                  <div class="user__info__content__left__count__col">
+                    <p class="user__info__content__left__count__col__number heading-fourth-mono">${data.volume.substring(
+                      0,
+                      data.volume.length - 3
+                    )}k+</p>
+                    <p class="user__info__content__left__count__col__value">
+                      Volume
+                    </p>
+                  </div>
+                  <div class="user__info__content__left__count__col">
+                    <p class="user__info__content__left__count__col__number heading-fourth-mono">${
+                      data.nftSold
+                    }+</p>
+                    <p class="user__info__content__left__count__col__value">
+                      NFTs Sold
+                    </p>
+                  </div>
+                  <div class="user__info__content__left__count__col">
+                    <p class="user__info__content__left__count__col__number heading-fourth-mono">${
+                      data.followers
+                    }+</p>
+                    <p class="user__info__content__left__count__col__value">
+                      Followers
+                    </p>
+                  </div>
+                </div>
+                <div class="user__info__content__left__bio">
+                  <h5 class="heading-fifth-mono">Bio</h5>
+                  <p>${data.bio}</p>
+                </div>
+                <div class="user__info__content__left__link">
+                  <h5 class="heading-fifth-mono">Links</h5>
+                  <div class="user__info__content__left__link__icons">
+                    <a href="./">
+                      <img src="../../imgs/icons/internet.svg" alt=""
+                    /></a>
+                    <a href="./">
+                      <img src="../../imgs/icons/dicord_logo.svg" alt=""
+                    /></a>
+                    <a href="./"
+                      ><img src="../../imgs/icons/youtube_logo.svg" alt=""
+                    /></a>
+                    <a href="./">
+                      <img src="../../imgs/icons/twitter_logo.svg" alt=""
+                    /></a>
+                    <a href="./"
+                      ><img src="../../imgs/icons/instagram_logo.svg" alt=""
+                    /></a>
+                  </div>
+                </div>
+              </div>
+          
             </div>
-            
-            <div class="user__info__content__left">
-             
-              <div class="user__info__content__left__count">
-                <div class="user__info__content__left__count__col">
-                  <p class="user__info__content__left__count__col__number heading-fourth-mono">${data.volume.substring(
-                    0,
-                    data.volume.length - 3
-                  )}k+</p>
-                  <p class="user__info__content__left__count__col__value">
-                    Volume
-                  </p>
-                </div>
-                <div class="user__info__content__left__count__col">
-                  <p class="user__info__content__left__count__col__number heading-fourth-mono">${
-                    data.nftSold
-                  }+</p>
-                  <p class="user__info__content__left__count__col__value">
-                    NFTs Sold
-                  </p>
-                </div>
-                <div class="user__info__content__left__count__col">
-                  <p class="user__info__content__left__count__col__number heading-fourth-mono">${
-                    data.followers
-                  }+</p>
-                  <p class="user__info__content__left__count__col__value">
-                    Followers
-                  </p>
-                </div>
-              </div>
-              <div class="user__info__content__left__bio">
-                <h5 class="heading-fifth-mono">Bio</h5>
-                <p>${data.bio}</p>
-              </div>
-              <div class="user__info__content__left__link">
-                <h5 class="heading-fifth-mono">Links</h5>
-                <div class="user__info__content__left__link__icons">
-                  <a href="./">
-                    <img src="../../imgs/icons/internet.svg" alt=""
-                  /></a>
-                  <a href="./">
-                    <img src="../../imgs/icons/dicord_logo.svg" alt=""
-                  /></a>
-                  <a href="./"
-                    ><img src="../../imgs/icons/youtube_logo.svg" alt=""
-                  /></a>
-                  <a href="./">
-                    <img src="../../imgs/icons/twitter_logo.svg" alt=""
-                  /></a>
-                  <a href="./"
-                    ><img src="../../imgs/icons/instagram_logo.svg" alt=""
-                  /></a>
-                </div>
-              </div>
-            </div>
-         
-          </div>
-`;
+  `;
+  fillCreatedItems(data);
   user.appendChild(userInfo);
   const copyButton = document.getElementsByClassName(
     "user__info__content__detail__buttons__copy"
@@ -179,21 +185,101 @@ function fillArtistPage(data) {
 
   created.textContent = data.nfts.length;
 
-  data.nfts?.forEach((nft) => {
-    cardContainer.innerHTML += `
+  function fillCreatedItems(data) {
+    cardContainer.innerHTML = "";
+    data.nfts?.forEach((nft) => {
+      console.log(nft);
+      cardContainer.innerHTML += `
+      <a  class="discover__cards__card">
+      <img
+        class="discover__cards__card__img"
+        src="../../../../${nft.imgPath}"
+        alt=""
+      />
+      <img
+        class="favorite-artist"
+        src="../../imgs/icons/heart-regular.svg"
+        alt=""
+      />
+      <div class="discover__cards__card__content">
+        <h5 class="heading-fifth-work">${nft.name}</h5>
+        <div class="discover__cards__card__content__dancer">
+          <img src="../../../../${data.profileImgPath}" alt="" />
+          <span class="base-mono">${data.name}</span>
+        </div>
+        <div class="discover__cards__card__content__records">
+          <div class="discover__cards__card__content__records__price">
+            <p class="caption-mono col-grey">Price</p>
+            <p class="base-mono">${nft.price?.value} ${nft.price?.currency}</p>
+          </div>
+          <div class="discover__cards__card__content__records__high">
+            <p class="caption-mono col-grey">Highest Bid</p>
+            <p class="base-mono">${nft.highestBid?.value} ${nft.highestBid?.currency}</p>
+          </div>
+        </div>
+      </div>
+    </a>
+  
+      `;
+      const favorite = cardContainer.getElementsByClassName("favorite-artist");
+      Array.from(favorite).forEach((element, index) => {
+        let isFavorite = false;
+
+        element.addEventListener("click", (event) => {
+          isFavorite = !isFavorite;
+          event.stopPropagation();
+          event.target.src = isFavorite
+            ? "../../imgs/icons/heart-full.svg"
+            : "../../imgs/icons/heart-regular.svg";
+          if (isFavorite) {
+            addFavoriteItem(data.nfts[index]);
+            Toastify({
+              text: `Added to favourite`,
+              duration: 1000,
+              gravity: "top",
+              position: "right",
+              style: {
+                fontFamily: "Work Sans",
+                background:
+                  "linear-gradient(128deg, #a259ff 49.75%, #377df7 136.56%)",
+              },
+            }).showToast();
+          } else {
+            removeFavoriteItem(data.nfts[index]);
+            Toastify({
+              text: `Removed from favorite`,
+              duration: 1000,
+              gravity: "top",
+              position: "right",
+              style: {
+                fontFamily: "Work Sans",
+                background:
+                  "linear-gradient(90deg, rgba(172,6,168,1) 0%, rgba(255,0,18,1) 100%)",
+              },
+            }).showToast();
+          }
+        });
+      });
+    });
+  }
+
+  function fillFavoriteItems(favoriteItems) {
+    cardContainer.innerHTML = "";
+    favoriteItems.forEach((nft) => {
+      cardContainer.innerHTML += `
   <a  class="discover__cards__card">
   <img
     class="discover__cards__card__img"
-    src="../../../../${nft.imgPath}"
+    src="../../../../${nft.item.imgPath}"
     alt=""
   />
   <img
-    class="favorite-artist"
-    src="../../imgs/icons/heart-regular.svg"
+    class="favorite-artist artist-remove"
+    src="../../imgs/icons/heart-full.svg"
     alt=""
   />
   <div class="discover__cards__card__content">
-    <h5 class="heading-fifth-work">${nft.name}</h5>
+    <h5 class="heading-fifth-work">${nft.item.name}</h5>
     <div class="discover__cards__card__content__dancer">
       <img src="../../../../${data.profileImgPath}" alt="" />
       <span class="base-mono">${data.name}</span>
@@ -201,43 +287,74 @@ function fillArtistPage(data) {
     <div class="discover__cards__card__content__records">
       <div class="discover__cards__card__content__records__price">
         <p class="caption-mono col-grey">Price</p>
-        <p class="base-mono">${nft.price?.value} ${nft.price?.currency}</p>
+        <p class="base-mono">${nft.item.price?.value} ${nft.item.price?.currency}</p>
       </div>
       <div class="discover__cards__card__content__records__high">
         <p class="caption-mono col-grey">Highest Bid</p>
-        <p class="base-mono">${nft.highestBid?.value} ${nft.highestBid?.currency}</p>
+        <p class="base-mono">${nft.item.highestBid?.value} ${nft.item.highestBid?.currency}</p>
       </div>
     </div>
   </div>
 </a>
 
+
   `;
-    const favorite = document.getElementsByClassName("favorite-artist");
-    let favorites = Array.from(favorite);
-    favorites.forEach((element) => {
-      element.addEventListener("mouseover", (event) => {
-        event.target.src = "../../imgs/icons/heart-full.svg";
+      const favorite = cardContainer.getElementsByClassName("artist-remove");
+      Array.from(favorite).forEach((element, index) => {
+        element.addEventListener("click", (event) => {
+          event.stopPropagation();
+          removeFavoriteItem(data.nfts[index]);
+          event.target.parentElement.remove();
+
+          Toastify({
+            text: `Removed from favorite`,
+            duration: 1000,
+            gravity: "top",
+            position: "right",
+            style: {
+              fontFamily: "Work Sans",
+              background:
+                "linear-gradient(90deg, rgba(172,6,168,1) 0%, rgba(255,0,18,1) 100%)",
+            },
+          }).showToast();
+        });
       });
     });
-    favorites.forEach((element) => {
-      element.addEventListener("mouseleave", (event) => {
-        event.target.src = "../../imgs/icons/heart-regular.svg";
-      });
-    });
-    favorites.forEach((element) => {
-      element.addEventListener("click", (event) => {
-        Toastify({
-          text: `Added to favourite`,
-          duration: 1000,
-          gravity: "top",
-          position: "right",
-          style: {
-            fontFamily: "Work Sans",
-            background:
-              "linear-gradient(128deg, #a259ff 49.75%, #377df7 136.56%)",
-          },
-        }).showToast();
-      });
-    });
+  }
+  console.log(data);
+  favoriteBar.addEventListener("click", () => {
+    if (localStorage.getItem("favorite") === null) {
+      console.log("No favorite items");
+      return;
+    } else {
+      let favoriteItems = getFavoriteItems().filter(
+        (x) => x.item.creatorId == +data.id
+      );
+
+      console.log(favoriteItems);
+      cardContainer.innerHTML = "";
+      fillFavoriteItems(favoriteItems);
+    }
   });
+  createdBar.addEventListener("click", () => {
+    console.log("created");
+    fillCreatedItems(data);
+  });
+}
+function addFavoriteItem(item, creatorId) {
+  const favoriteItems = getFavoriteItems();
+  favoriteItems.push({ creatorId: creatorId, item });
+
+  localStorage.setItem("favorite", JSON.stringify(favoriteItems));
+}
+function removeFavoriteItem(item) {
+  let favoriteItems = getFavoriteItems();
+
+  favoriteItems = favoriteItems.filter((i) => i.item.id !== item.id);
+
+  localStorage.setItem("favorite", JSON.stringify(favoriteItems));
+}
+
+function getFavoriteItems() {
+  return JSON.parse(localStorage.getItem("favorite")) ?? [];
 }
