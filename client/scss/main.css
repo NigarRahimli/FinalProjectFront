@@ -2447,13 +2447,13 @@ body {
   background-color: #2b2b2b;
   border-radius: 20px;
   transition: transform 0.3s ease-in-out;
-  cursor: pointer;
   position: relative;
 }
 #card .discover__cards__card:hover {
   transform: scale(0.95);
 }
 #card .discover__cards__card .favorite-artist {
+  cursor: pointer;
   width: 24px;
   position: absolute;
   right: 22px;

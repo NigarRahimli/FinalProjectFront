@@ -214,12 +214,12 @@
       background-color: $--Background;
       border-radius: 20px;
       transition: transform 0.3s ease-in-out;
-      cursor: pointer;
       position: relative;
       &:hover {
         transform: scale(0.95);
       }
       .favorite-artist {
+        cursor: pointer;
         width: 24px;
         position: absolute;
         right: 22px;

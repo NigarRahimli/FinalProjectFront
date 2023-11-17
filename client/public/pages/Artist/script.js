@@ -236,11 +236,12 @@ function fillArtistPage(data) {
         element.addEventListener("click", (event) => {
           isFav = !isFav;
           event.stopPropagation();
-
           event.target.src = isFav
             ? "../../imgs/icons/heart-full.svg"
             : "../../imgs/icons/heart-regular.svg";
-
+            let isIn = favoriteItems.some(
+              (favoriteItem) => favoriteItem.item.id === nft.id
+            );
           if (isFav) {
             addFavoriteItem(data.nfts[index]);
             Toastify({
@@ -258,7 +259,7 @@ function fillArtistPage(data) {
             removeFavoriteItem(data.nfts[index]);
 
             Toastify({
-              text: `Removed from favorite`,
+              text: `Removed from favorite . `,
               duration: 1000,
               gravity: "top",
               position: "right",
@@ -273,7 +274,7 @@ function fillArtistPage(data) {
       });
     });
   }
-
+  let isFav = false;
   function fillFavoriteItems(favoriteItems) {
     cardContainer.innerHTML = "";
     favoriteItems.forEach((nft) => {
@@ -315,7 +316,7 @@ function fillArtistPage(data) {
         element.addEventListener("click", (event) => {
           event.stopPropagation();
           removeFavoriteItem(data.nfts[index]);
-
+          isFav = false;
           event.target.parentElement.remove();
 
           Toastify({
@@ -354,10 +355,19 @@ function fillArtistPage(data) {
 }
 function addFavoriteItem(item, creatorId) {
   const favoriteItems = getFavoriteItems();
-  favoriteItems.push({ creatorId: creatorId, item });
 
-  localStorage.setItem("favorite", JSON.stringify(favoriteItems));
-  fillFavoriteNumber(item.creatorId);
+  const isAlreadyAdded = favoriteItems.some(
+    (favoriteItem) => favoriteItem.item.id === item.id
+  );
+
+  if (!isAlreadyAdded) {
+    favoriteItems.push({ creatorId: creatorId, item });
+
+    localStorage.setItem("favorite", JSON.stringify(favoriteItems));
+    fillFavoriteNumber(item.creatorId);
+  }
+
+  return favoriteItems;
 }
 function removeFavoriteItem(item) {
   let favoriteItems = getFavoriteItems();
