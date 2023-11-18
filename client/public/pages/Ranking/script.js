@@ -159,7 +159,7 @@ function fillArtistPage(artists) {
       <div class="top-creators__ranking-list__items__item__info__number">
         ${artist.id}
       </div>
-      <a href="./" class="top-creators__ranking-list__items__item__info__user" href="">
+      <a class="top-creators__ranking-list__items__item__info__user">
         <img src="../../../../${artist.profileImgPath}" alt="" />
         <h5 class="heading-fifth-work"> ${artist.name}</h5>
       </a>
@@ -175,7 +175,12 @@ function fillArtistPage(artists) {
       )}k</p>
       <img class="top-creators-delete" src="../../imgs/icons/trash.svg" alt="">
     </div>`;
-
+   const host=person.getElementsByClassName("top-creators__ranking-list__items__item__info__user")[0];
+   host.addEventListener("click", () => {
+    window.open(
+      `http://127.0.0.1:5500/client/public/pages/Artist/?artist_id=${artist.id}`,
+      "_self"
+    )})
     const deleteButton = person.getElementsByClassName(
       "top-creators-delete"
     )[0];

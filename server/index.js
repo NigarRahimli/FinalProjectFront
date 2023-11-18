@@ -180,8 +180,9 @@ app.post("/api/register", (req, res) => {
     };
 
     users.push(newUser);
-
-    res.status(200).json({ ...newUser, password: undefined });
+    setTimeout(() => {
+      res.status(200).json({ ...newUser, password: undefined });
+    }, 5000);
   } catch (error) {
     res.status(500).json({ error: `Internal Server Error! ${error}` });
   }

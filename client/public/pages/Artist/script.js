@@ -191,6 +191,9 @@ function fillArtistPage(data) {
 
   function fillCreatedItems(data) {
     cardContainer.innerHTML = "";
+    if (data.nfts.length == 0) {
+      cardContainer.innerHTML = `<h1 class="heading-fifth-mono">Nothing here yet ...</h1>`;
+    }
     data.nfts?.forEach((nft) => {
       const favorite = cardContainer.getElementsByClassName("favorite-artist");
       let favoriteItems = getFavoriteItems();
@@ -255,7 +258,7 @@ function fillArtistPage(data) {
   function fillFavoriteItems(favoriteItems) {
     cardContainer.innerHTML = "";
     if (favoriteItems.length == 0) {
-      cardContainer.innerHTML = `<h1 class="heading-fifth-mono">Nothing here yet</h1>`;
+      cardContainer.innerHTML = `<h1 class="heading-fifth-mono">Nothing here yet ...</h1>`;
     }
     favoriteItems.forEach((nft) => {
       cardContainer.innerHTML += `
@@ -298,6 +301,9 @@ function fillArtistPage(data) {
           removeFavoriteItem(data.nfts[index]);
 
           event.target.parentElement.remove();
+          if (cardContainer.children.length == 0) {
+            cardContainer.innerHTML = `<h1 class="heading-fifth-mono">Nothing here yet</h1>`;
+          }
 
           Toastify({
             text: `Removed from favorite`,
