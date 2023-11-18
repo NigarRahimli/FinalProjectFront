@@ -61,7 +61,18 @@
       &__form {
         display: flex;
         flex-direction: column;
-
+        .wrapper{
+          position: relative;
+        }
+.pas-content{
+  display: none;
+  padding: 20px ;
+  width: 330px;
+  background-color: white;
+  top:45px;
+  border-radius: 20px;
+  position: absolute;
+}
         @include for-size(mobile) {
           width: 100%;
           align-items: center;

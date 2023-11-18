@@ -1,5 +1,7 @@
 const cardContainer = document.querySelector(".discover__cards");
 const searchInput = document.getElementsByClassName("search__bar__input")[0];
+const loadingCards = document.getElementsByClassName("card is-loading");
+
 let skip = 0;
 let skipStr = 0;
 const pageSize = 6;
@@ -27,6 +29,10 @@ function fetchNfts(skip) {
     .then((res) => res.json())
     .then((data) => {
       fillArtistPage(data);
+      data &&
+        Array.from(loadingCards).forEach((element) => {
+          element.style.display = "none";
+        });
     })
     .finally(() => {});
 }

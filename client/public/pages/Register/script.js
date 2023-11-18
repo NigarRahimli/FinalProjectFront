@@ -6,6 +6,7 @@ const PASSWORD_REGEX =
 const validateWithRegex = (text, pattern) => {
   return pattern.test(text);
 };
+const name=registerForm.getElementsByTagName("input")[0];
 
 registerForm.addEventListener("submit", async (e) => {
   e.preventDefault();

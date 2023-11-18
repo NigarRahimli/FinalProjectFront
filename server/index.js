@@ -95,10 +95,12 @@ app.post("/api/nfts", (req, res) => {
       .filter((nft) => nft.creator != undefined);
     const nftsSlice = filteredNFTS.slice(startIndex, endIndex);
 
-    res.status(200).json({
-      hasMore: endIndex < filteredNFTS.length,
-      nfts: nftsSlice,
-    });
+    setTimeout(() => {
+      res.status(200).json({
+        hasMore: endIndex < filteredNFTS.length,
+        nfts: nftsSlice,
+      });
+    }, 5000);
   } catch (error) {
     res.status(500).json({ error: `Internal Server Error! ${error}` });
   }

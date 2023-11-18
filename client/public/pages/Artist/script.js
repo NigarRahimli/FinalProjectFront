@@ -316,6 +316,7 @@ function fillArtistPage(data) {
         element.addEventListener("click", (event) => {
           event.stopPropagation();
           removeFavoriteItem(data.nfts[index]);
+          
           isFav = false;
           event.target.parentElement.remove();
 

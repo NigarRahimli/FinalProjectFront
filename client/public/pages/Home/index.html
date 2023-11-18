@@ -210,7 +210,7 @@
             Checkout Top Rated Creators On The Nft Marketplace
           </p>
         </div>
-        <a href="./" class="secondary top__button">
+        <a href="../Ranking/" class="secondary top__button">
           <img src="../../imgs/icons/rocket-launch-violet.svg" class="icon" />
           <h1>View Rankings</h1>
         </a>
@@ -281,7 +281,7 @@
           </h3>
           <p class="discover__texts__text">Explore new trending NFTs</p>
         </div>
-        <a href="./" class="secondary discover__button">
+        <a href="../Market/" class="secondary discover__button">
           <img src="../../imgs/icons/eye.svg" class="icon" />
           <h1>See all</h1>
         </a>
@@ -379,23 +379,23 @@
         </div>
         <div class="magic__right">
           <p class="caption-mono">Auction ends in:</p>
-          <div class="magic__right__time">
+          <div class="magic__right__time" id="countdown">
             <div class="magic__right__time__number">
-              <h3 class="heading-third-mono">59</h3>
+              <h3 class="heading-third-mono" id="hours">00</h3>
               <p class="caption-mono">Hours</p>
             </div>
             <h3 class="heading-third-mono">:</h3>
             <div class="magic__right__time__number">
-              <h3 class="heading-third-mono">59</h3>
+              <h3 class="heading-third-mono" id="minutes">00</h3>
               <p class="caption-mono">Minutes</p>
             </div>
             <h3 class="heading-third-mono">:</h3>
             <div class="magic__right__time__number">
-              <h3 class="heading-third-mono">59</h3>
+              <h3 class="heading-third-mono" id="seconds">00</h3>
               <p class="caption-mono">Seconds</p>
             </div>
           </div>
-        </div>
+      
         <a class="magic__left__button addition secondary" href="./">
           <img src="../../imgs/icons/eye.svg" alt="" />
           <p>See NFT</p>
@@ -527,6 +527,7 @@
         <p class="caption-work">Ⓒ NFT Market. Use this template freely.</p>
       </div>
     </footer>
+    <script src="../../script/time.js"></script>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
