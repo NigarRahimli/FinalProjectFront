@@ -193,7 +193,7 @@ function fillArtistPage(data) {
     cardContainer.innerHTML = "";
     data.nfts?.forEach((nft) => {
       const favorite = cardContainer.getElementsByClassName("favorite-artist");
-      const favoriteItems = getFavoriteItems();
+      let favoriteItems = getFavoriteItems();
       let isFav = favoriteItems.some(
         (favoriteItem) => favoriteItem.item.id === nft.id
       );
@@ -238,49 +238,20 @@ function fillArtistPage(data) {
         `;
       Array.from(favorite).forEach((element, index) => {
         element.addEventListener("click", (event) => {
-          isFav = !isFav;
+          favoriteItems = getFavoriteItems();
+          let isFav = favoriteItems.some(
+            (favoriteItem) => favoriteItem.item.id === nft.id
+          );
+
           event.stopPropagation();
-          event.target.src = isFav
-            ? "../../imgs/icons/heart-full.svg"
-            : "../../imgs/icons/heart-regular.svg";
 
-          if (isFav) {
-            console.log("isFav " + isFav);
-            addFavoriteItem(data.nfts[index], data.index);
-
-            Toastify({
-              text: `Added to favourite`,
-              duration: 1000,
-              gravity: "top",
-              position: "right",
-              style: {
-                fontFamily: "Work Sans",
-                background:
-                  "linear-gradient(128deg, #a259ff 49.75%, #377df7 136.56%)",
-              },
-            }).showToast();
-          } else {
-            console.log("isFav " + isFav);
-
-            removeFavoriteItem(data.nfts[index]);
-
-            Toastify({
-              text: `Removed from favorite . `,
-              duration: 1000,
-              gravity: "top",
-              position: "right",
-              style: {
-                fontFamily: "Work Sans",
-                background:
-                  "linear-gradient(90deg, rgba(172,6,168,1) 0%, rgba(255,0,18,1) 100%)",
-              },
-            }).showToast();
+          if (addFavoriteItem(data.nfts[index], data.index)) {
+            event.target.src = "../../imgs/icons/heart-full.svg";
           }
         });
       });
     });
   }
-  let isFav = false;
   function fillFavoriteItems(favoriteItems) {
     cardContainer.innerHTML = "";
     if (favoriteItems.length == 0) {
@@ -326,9 +297,8 @@ function fillArtistPage(data) {
           event.stopPropagation();
           removeFavoriteItem(data.nfts[index]);
 
-          isFav = false;
           event.target.parentElement.remove();
-        
+
           Toastify({
             text: `Removed from favorite`,
             duration: 1000,
@@ -374,14 +344,36 @@ function addFavoriteItem(item, creatorId) {
 
     localStorage.setItem("favorite", JSON.stringify(favoriteItems));
     fillFavoriteNumber(item.creatorId);
+    Toastify({
+      text: `Added to favourite`,
+      duration: 1000,
+      gravity: "top",
+      position: "right",
+      style: {
+        fontFamily: "Work Sans",
+        background: "linear-gradient(128deg, #a259ff 49.75%, #377df7 136.56%)",
+      },
+    }).showToast();
+  } else {
+    Toastify({
+      text: `Already added to favorites`,
+      duration: 1000,
+      gravity: "top",
+      position: "right",
+      style: {
+        fontFamily: "Work Sans",
+        background: "#f00",
+      },
+    }).showToast();
   }
 
   return favoriteItems;
 }
+
 function removeFavoriteItem(item) {
   console.log("removed");
   let favoriteItems = getFavoriteItems();
-  
+
   console.log(item.id);
   favoriteItems = favoriteItems.filter((i) => i.item.id !== item.id);
   console.log(favoriteItems.length);
