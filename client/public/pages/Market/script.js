@@ -1,6 +1,17 @@
 const cardContainer = document.querySelector(".discover__cards");
 const searchInput = document.getElementsByClassName("search__bar__input")[0];
+const loadMoreButton = document.querySelector(".load-more");
 const loadingCards = document.getElementsByClassName("card is-loading");
+let hasMore = true;
+const loadingCardHTML = `
+  <div class="card is-loading">
+    <div class="image"></div>
+    <div class="content">
+      <h2></h2>
+      <p></p>
+    </div>
+  </div>
+`;
 
 let skip = 0;
 let skipStr = 0;
@@ -16,6 +27,11 @@ function getNfts() {
 }
 
 function fetchNfts(skip) {
+
+
+
+  appendLoadingCards();
+
   fetch(`http://localhost:3000/api/nfts`, {
     method: "POST",
     headers: {
@@ -28,14 +44,18 @@ function fetchNfts(skip) {
   })
     .then((res) => res.json())
     .then((data) => {
+      removeLoadingCards();
+
       fillArtistPage(data);
-      data &&
-        Array.from(loadingCards).forEach((element) => {
-          element.style.display = "none";
-        });
+
+      hasMore = data.hasMore;
+
     })
-    .finally(() => {});
+    .finally(() => {
+     
+    });
 }
+
 let id = 0;
 
 searchInput.addEventListener("keyup", (e) => {
@@ -45,7 +65,13 @@ searchInput.addEventListener("keyup", (e) => {
     fetchNftsforString(skipStr, searchString);
   }, 2000);
 });
+
 function fetchNftsforString(skip, searchString) {
+
+  cardContainer.innerHTML = "";
+
+  appendLoadingCards();
+
   fetch(`http://localhost:3000/api/nfts`, {
     method: "POST",
     headers: {
@@ -59,21 +85,26 @@ function fetchNftsforString(skip, searchString) {
   })
     .then((res) => res.json())
     .then((data) => {
+      // Remove loading cards
+      removeLoadingCards();
+
       cardContainer.innerHTML = "";
       fillArtistPage(data);
     })
-    .finally(() => {});
+    .finally(() => {
+    
+    });
 }
 
 function fillArtistPage(data) {
   if (!data.hasMore) {
-    document.querySelector(".load-more").disabled = true;
+    loadMoreButton.disabled = true;
   }
 
   data.nfts.forEach((nft) => {
     const card = document.createElement("a");
     card.classList.add("discover__cards__card");
-    card.innerHTML = `
+    card.innerHTML += `
       <img class="discover__cards__card__img" src="../../../../${nft.imgPath}" alt="" />
       <div class="discover__cards__card__content">
         <h5 class="heading-fifth-work">${nft.name}</h5>
@@ -100,8 +131,27 @@ function fillArtistPage(data) {
   skip += pageSize;
 }
 
-document.querySelector(".load-more").addEventListener("click", () => {
-  fetchNfts(skip);
+
+
+function appendLoadingCards() {
+
+  for (let i = 0; i < pageSize; i++) {
+    const loadingCard = document.createElement("div");
+    loadingCard.innerHTML = loadingCardHTML;
+    cardContainer.appendChild(loadingCard);
+  }
+}
+
+function removeLoadingCards() {
+  Array.from(loadingCards).forEach((element) => {
+    element.remove();
+  });
+}
+
+loadMoreButton.addEventListener("click", () => {
+  if (hasMore) {
+    fetchNfts(skip);
+  }
 });
 
 getNfts();
