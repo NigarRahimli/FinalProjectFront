@@ -1,9 +1,9 @@
 const cardContainer = document.querySelector(".discover__cards");
-const cards=document.getElementsByClassName("discover__cards__card");
+const cards = document.getElementsByClassName("discover__cards__card");
 const searchInput = document.getElementsByClassName("search__bar__input")[0];
 const loadMoreButton = document.querySelector(".load-more");
 let loadingCards = document.getElementsByClassName("card is-loading");
-let fullLength=0;
+let fullLength = 0;
 let hasMore = true;
 const loadingCardHTML = `
    
@@ -113,7 +113,6 @@ function fillArtistPage(data) {
     "states__category__number number"
   )[0];
   const cards = document.getElementsByClassName("discover__cards__card");
-  
 
   data.nfts.forEach((nft) => {
     const card = document.createElement("a");
@@ -138,7 +137,17 @@ function fillArtistPage(data) {
             </div>
           </div>
         `;
-
+    let host = card.getElementsByClassName(
+      "discover__cards__card__content__dancer"
+    )[0];
+    host.style.cursor = "pointer";
+    host.addEventListener("click", () => {
+      window.open(
+        `http://127.0.0.1:5500/client/public/pages/Artist/?artist_id=${nft.creator.id}`,
+        "_self"
+      );
+    });
+    console.log(host);
     cardContainer.appendChild(card);
   });
 
