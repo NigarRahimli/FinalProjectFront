@@ -234,47 +234,19 @@ function fillArtistPage(data) {
       `;
       Array.from(favorite).forEach((element, index) => {
         element.addEventListener("click", (event) => {
-          isFav = !isFav;
           event.stopPropagation();
+
+          if (isFav) {
+            console.log("isFav " + isFav);
+            addFavoriteItem(data.nfts[index]);
+          }
           event.target.src = isFav
             ? "../../imgs/icons/heart-full.svg"
             : "../../imgs/icons/heart-regular.svg";
-            let isIn = favoriteItems.some(
-              (favoriteItem) => favoriteItem.item.id === nft.id
-            );
-          if (isFav) {
-            addFavoriteItem(data.nfts[index]);
-            Toastify({
-              text: `Added to favourite`,
-              duration: 1000,
-              gravity: "top",
-              position: "right",
-              style: {
-                fontFamily: "Work Sans",
-                background:
-                  "linear-gradient(128deg, #a259ff 49.75%, #377df7 136.56%)",
-              },
-            }).showToast();
-          } else {
-            removeFavoriteItem(data.nfts[index]);
-
-            Toastify({
-              text: `Removed from favorite . `,
-              duration: 1000,
-              gravity: "top",
-              position: "right",
-              style: {
-                fontFamily: "Work Sans",
-                background:
-                  "linear-gradient(90deg, rgba(172,6,168,1) 0%, rgba(255,0,18,1) 100%)",
-              },
-            }).showToast();
-          }
         });
       });
     });
   }
-  let isFav = false;
   function fillFavoriteItems(favoriteItems) {
     cardContainer.innerHTML = "";
     favoriteItems.forEach((nft) => {
@@ -316,8 +288,7 @@ function fillArtistPage(data) {
         element.addEventListener("click", (event) => {
           event.stopPropagation();
           removeFavoriteItem(data.nfts[index]);
-          
-          isFav = false;
+
           event.target.parentElement.remove();
 
           Toastify({
@@ -344,17 +315,16 @@ function fillArtistPage(data) {
         (x) => x.item.creatorId == +data.id
       );
 
-      console.log(favoriteItems);
       cardContainer.innerHTML = "";
       fillFavoriteItems(favoriteItems);
     }
   });
   createdBar.addEventListener("click", () => {
-    console.log("created");
     fillCreatedItems(data);
   });
 }
 function addFavoriteItem(item, creatorId) {
+  console.log("added");
   const favoriteItems = getFavoriteItems();
 
   const isAlreadyAdded = favoriteItems.some(
@@ -366,11 +336,33 @@ function addFavoriteItem(item, creatorId) {
 
     localStorage.setItem("favorite", JSON.stringify(favoriteItems));
     fillFavoriteNumber(item.creatorId);
+    Toastify({
+      text: `Added to favourite`,
+      duration: 1000,
+      gravity: "top",
+      position: "right",
+      style: {
+        fontFamily: "Work Sans",
+        background: "linear-gradient(128deg, #a259ff 49.75%, #377df7 136.56%)",
+      },
+    }).showToast();
+  } else {
+    Toastify({
+      text: `Already added to favorites`,
+      duration: 1000,
+      gravity: "top",
+      position: "right",
+      style: {
+        fontFamily: "Work Sans",
+        background: "#f00",
+      },
+    }).showToast();
   }
 
   return favoriteItems;
 }
 function removeFavoriteItem(item) {
+  console.log("removed");
   let favoriteItems = getFavoriteItems();
 
   favoriteItems = favoriteItems.filter((i) => i.item.id !== item.id);
@@ -383,8 +375,11 @@ function getFavoriteItems() {
   return JSON.parse(localStorage.getItem("favorite")) ?? [];
 }
 function fillFavoriteNumber(artistId) {
-  console.log(artistId);
   favoriteNumber.innerHTML = getFavoriteItems().filter(
     (x) => x.item.creatorId == +artistId
   ).length;
+}
+
+function isInLocal(item) {
+  return getFavoriteItems().item.id == item.id;
 }

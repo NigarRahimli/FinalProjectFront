@@ -6,7 +6,7 @@ const PASSWORD_REGEX =
 const validateWithRegex = (text, pattern) => {
   return pattern.test(text);
 };
-const name=registerForm.getElementsByTagName("input")[0];
+const name = registerForm.getElementsByTagName("input")[0];
 
 registerForm.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -81,7 +81,7 @@ function validateFormItems(formItems) {
     hasError = true;
   }
   if (!EMAIL_REGEX.test(emailElement.value)) {
-    paswordErrorElement.textContent = " Invalid email format";
+    emailErrorElement.textContent = "Invalid email format";
     hasError = true;
   }
   if (!paswordElement.value) {
