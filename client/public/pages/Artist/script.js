@@ -60,7 +60,6 @@ async function getArtist(id) {
     const data = await response.json();
     fillArtistPage(data);
   } catch (error) {
-    console.error(error);
     window.location.href = "../notFound/";
   } finally {
     setTimeout(() => showLoader(false), 3000);
@@ -338,7 +337,6 @@ function fillArtistPage(data) {
   });
 }
 function addFavoriteItem(item, creatorId) {
-  console.log("added");
   const favoriteItems = getFavoriteItems();
 
   const isAlreadyAdded = favoriteItems.some(
@@ -377,12 +375,9 @@ function addFavoriteItem(item, creatorId) {
 }
 
 function removeFavoriteItem(item) {
-  console.log("removed");
   let favoriteItems = getFavoriteItems();
 
-  console.log(item.id);
   favoriteItems = favoriteItems.filter((i) => i.item.id !== item.id);
-  console.log(favoriteItems.length);
 
   localStorage.setItem("favorite", JSON.stringify(favoriteItems));
   fillFavoriteNumber(item.creatorId);

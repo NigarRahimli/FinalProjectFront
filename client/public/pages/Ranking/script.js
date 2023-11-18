@@ -11,7 +11,6 @@ const sortSold = document.getElementById("sort-sold");
 const sortVolume = document.getElementById("sort-volume");
 
 sortId.addEventListener("click", () => {
-  console.log(artists);
   if (sortId.classList.contains("clicked")) {
     sortId.classList.remove("clicked");
     sortItems(artists, "id", "asc");

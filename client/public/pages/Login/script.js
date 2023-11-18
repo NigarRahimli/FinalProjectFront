@@ -14,7 +14,6 @@ loginForm.addEventListener("submit", async (e) => {
       password: e.target.children[2].getElementsByTagName("input")[0].value,
     };
     const submitBtn = e.target.querySelector(".submit-btn");
-    console.log(submitBtn);
     submitBtn.classList.add("loading");
     submitBtn.disabled = true;
 

@@ -102,7 +102,6 @@ function fetchNftsforString(skip, searchString) {
     })
     .finally(() => {});
   skipStr += pageSize;
-  console.log(skipStr);
 }
 
 function fillArtistPage(data) {
@@ -147,7 +146,6 @@ function fillArtistPage(data) {
         "_self"
       );
     });
-    console.log(host);
     cardContainer.appendChild(card);
   });
 
