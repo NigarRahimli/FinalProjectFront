@@ -1,7 +1,9 @@
 const cardContainer = document.querySelector(".discover__cards");
+const cards=document.getElementsByClassName("discover__cards__card");
 const searchInput = document.getElementsByClassName("search__bar__input")[0];
 const loadMoreButton = document.querySelector(".load-more");
 let loadingCards = document.getElementsByClassName("card is-loading");
+let fullLength=0;
 let hasMore = true;
 const loadingCardHTML = `
    
@@ -60,7 +62,7 @@ let id = 0;
 
 searchInput.addEventListener("keyup", (e) => {
   skipStr = 0;
-  skip=0;
+  skip = 0;
   clearTimeout(id);
   id = setTimeout(() => {
     searchString = e.target.value.trim();
@@ -90,7 +92,6 @@ function fetchNftsforString(skip, searchString) {
     .then((data) => {
       removeLoadingCards();
 
-      // cardContainer.innerHTML = "";
       fillArtistPage(data);
       hasMore = data.hasMore;
       if (hasMore) {
@@ -108,6 +109,11 @@ function fillArtistPage(data) {
   if (!data.hasMore) {
     loadMoreButton.disabled = true;
   }
+  const statesCategoryNumber = document.getElementsByClassName(
+    "states__category__number number"
+  )[0];
+  const cards = document.getElementsByClassName("discover__cards__card");
+  
 
   data.nfts.forEach((nft) => {
     const card = document.createElement("a");
@@ -137,6 +143,7 @@ function fillArtistPage(data) {
   });
 
   skip += pageSize;
+  statesCategoryNumber.textContent = cards.length;
 }
 
 function appendLoadingCards() {
@@ -151,10 +158,8 @@ function appendLoadingCards() {
 
 function removeLoadingCards() {
   const loadingCardsArray = Array.from(loadingCards);
-  
-  // Iterate over the array and remove each element
+
   loadingCardsArray.forEach((element) => {
-    console.log("removed");
     element.remove();
   });
 }
