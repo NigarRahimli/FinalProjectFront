@@ -2117,14 +2117,61 @@ body {
 #content .content__account__form .wrapper {
   position: relative;
 }
+#content .content__account__form .pass-field i {
+  color: #333;
+}
 #content .content__account__form .pas-content {
   display: none;
-  padding: 20px;
+  z-index: 10;
+  font-family: "Work Sans", sans-serif;
+  padding: 15px;
   width: 330px;
-  background-color: white;
-  top: 45px;
+  background-color: #fff;
+  top: 47px;
   border-radius: 20px;
   position: absolute;
+}
+#content .content__account__form .pas-content .pass-field i {
+  right: 18px;
+  top: 50%;
+  font-size: 10px;
+  color: #999;
+  cursor: pointer;
+  position: absolute;
+  transform: translateY(-50%);
+}
+#content .content__account__form .pas-content .wrapper .content {
+  margin: 10px 0 10px;
+}
+#content .content__account__form .pas-content .content p {
+  color: #333;
+  font-size: 12px;
+}
+#content .content__account__form .pas-content .content .requirement-list {
+  margin-top: 20px;
+}
+#content .content__account__form .pas-content .requirement-list li {
+  font-size: 12px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+#content .content__account__form .pas-content .requirement-list li i {
+  width: 20px;
+  color: #aaa;
+  font-size: 0.6rem;
+}
+#content .content__account__form .pas-content .requirement-list li span {
+  margin-left: 12px;
+  color: #333;
+}
+#content .content__account__form .pas-content .requirement-list li .valid i {
+  font-size: 1.2rem;
+  color: #4285f4;
+}
+#content .content__account__form .pas-content .requirement-list li .valid span {
+  color: #999;
 }
 @media screen and (max-width: 690px) {
   #content .content__account__form {

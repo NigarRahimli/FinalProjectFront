@@ -3,8 +3,7 @@
     display: flex;
     column-gap: 60px;
     @include for-size(tablet) {
-    column-gap: 40px;
-  
+      column-gap: 40px;
     }
     @include for-size(mobile) {
       flex-direction: column;
@@ -61,27 +60,79 @@
       &__form {
         display: flex;
         flex-direction: column;
-        .wrapper{
+        .wrapper {
           position: relative;
         }
-.pas-content{
-  display: none;
-  padding: 20px ;
-  width: 330px;
-  background-color: white;
-  top:45px;
-  border-radius: 20px;
-  position: absolute;
-}
+        .pass-field{
+          i{
+            color: #333;
+          }
+        }
+        .pas-content {
+
+          display: none;
+          z-index: 10;
+          font-family: $--work;
+          padding: 15px;
+          width: 330px;
+          background-color: $--Text;
+          top: 47px;
+          border-radius: 20px;
+          position: absolute;
+         
+          .pass-field i {
+            right: 18px;
+            top: 50%;
+            font-size: 10px;
+            color: #999;
+            cursor: pointer;
+            position: absolute;
+            transform: translateY(-50%);
+          }
+          .wrapper .content {
+            margin: 10px 0 10px;
+          }
+          .content p {
+            color: #333;
+            font-size:12px;
+          }
+          .content .requirement-list {
+            margin-top: 20px;
+          }
+          .requirement-list li {
+            font-size: 12px;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            i {
+              width: 20px;
+              color: #aaa;
+              font-size: 0.6rem;
+            }
+            span {
+              margin-left: 12px;
+              color: #333;
+            }
+            .valid i {
+              font-size: 1.2rem;
+              color: #4285f4;
+            }
+            .valid span {
+              color: #999;
+            }
+          }
+       
+        }
         @include for-size(mobile) {
           width: 100%;
           align-items: center;
         }
         padding-bottom: 30px;
-        p{
+        p {
           margin: 5px 5px 10px 10px;
           height: 15px;
-          color:rgb(213, 37, 37);
+          color: rgb(213, 37, 37);
         }
         div {
           display: flex;
@@ -94,7 +145,7 @@
           border: 1px solid $--caption-label-text;
           background: $--Text;
           text-align: center;
-         
+
           @include for-size(mobile) {
             width: 315px;
           }
