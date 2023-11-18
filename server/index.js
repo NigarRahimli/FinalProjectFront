@@ -25,9 +25,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/creators", (req, res) => {
-  setTimeout(() => {
-    res.status(200).json(creators);
-  }, 5000);
+  res.status(200).json(creators);
 });
 
 app.get("/api/creators/:id", (req, res) => {
@@ -95,12 +93,10 @@ app.post("/api/nfts", (req, res) => {
       .filter((nft) => nft.creator != undefined);
     const nftsSlice = filteredNFTS.slice(startIndex, endIndex);
 
-    setTimeout(() => {
-      res.status(200).json({
-        hasMore: endIndex < filteredNFTS.length,
-        nfts: nftsSlice,
-      });
-    }, 5000);
+    res.status(200).json({
+      hasMore: endIndex < filteredNFTS.length,
+      nfts: nftsSlice,
+    });
   } catch (error) {
     res.status(500).json({ error: `Internal Server Error! ${error}` });
   }
@@ -180,9 +176,7 @@ app.post("/api/register", (req, res) => {
     };
 
     users.push(newUser);
-    setTimeout(() => {
-      res.status(200).json({ ...newUser, password: undefined });
-    }, 5000);
+    res.status(200).json({ ...newUser, password: undefined });
   } catch (error) {
     res.status(500).json({ error: `Internal Server Error! ${error}` });
   }
