@@ -1,12 +1,14 @@
 
   
   .cards {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 80px 0;
+    gap: 30px;
   }
   
   .card {
-   
-    width: 300px;
+    width: 331px;
     height: 466.8px;
     background: $--Background;
     border-radius: 20px;

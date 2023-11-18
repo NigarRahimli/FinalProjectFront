@@ -447,36 +447,15 @@ table {
     opacity: 0.05;
   }
 }
-.loader2 {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background-color: #fff;
-  box-shadow: 32px 0 #fff, -32px 0 #fff;
-  position: relative;
-  animation: flash 0.5s ease-out infinite alternate;
-}
-
-@keyframes flash {
-  0% {
-    background-color: rgba(255, 255, 255, 0.1333333333);
-    box-shadow: 32px 0 rgba(255, 255, 255, 0.1333333333), -32px 0 #FFF;
-  }
-  50% {
-    background-color: #FFF;
-    box-shadow: 32px 0 rgba(255, 255, 255, 0.1333333333), -32px 0 rgba(255, 255, 255, 0.1333333333);
-  }
-  100% {
-    background-color: rgba(255, 255, 255, 0.1333333333);
-    box-shadow: 32px 0 #FFF, -32px 0 rgba(255, 255, 255, 0.1333333333);
-  }
-}
 .cards {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 80px 0;
+  gap: 30px;
 }
 
 .card {
-  width: 300px;
+  width: 331px;
   height: 466.8px;
   background: #2b2b2b;
   border-radius: 20px;
