@@ -7,9 +7,9 @@ function showSpinner(isWanted) {
 }
 
 function showError(isWanted) {
-  if(isWanted){
-  error.classList.remove("d-none")}
-  else{
+  if (isWanted) {
+    error.classList.remove("d-none");
+  } else {
     error.classList.add("d-none");
   }
 }
@@ -19,13 +19,13 @@ showError(false);
 function getProducts() {
   showSpinner(true);
 
-  fetch("http://localhost:3000/api/creators")
+  fetch("https://nft-040z.onrender.com/api/creators")
     .then((res) => res.json())
     .then((data) => {
       fillCard(data);
     })
     .catch((err) => {
-      showError(true); 
+      showError(true);
     })
     .finally(() => {
       showSpinner(false);

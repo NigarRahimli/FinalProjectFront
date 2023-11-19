@@ -17,7 +17,7 @@ loginForm.addEventListener("submit", async (e) => {
     submitBtn.classList.add("loading");
     submitBtn.disabled = true;
 
-    const response = await fetch("http://localhost:3000/api/login", {
+    const response = await fetch("https://nft-040z.onrender.com/api/login", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -28,7 +28,6 @@ loginForm.addEventListener("submit", async (e) => {
 
     if (response.status === 200) {
       Toastify({
-        
         text: "Login is successful!",
         duration: 3000,
         gravity: "top",
@@ -54,7 +53,6 @@ loginForm.addEventListener("submit", async (e) => {
     }
     submitBtn.classList.remove("loading");
     submitBtn.disabled = false;
-   
   }
 });
 function validateFormItems(formItems) {

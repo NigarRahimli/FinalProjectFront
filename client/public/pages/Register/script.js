@@ -20,7 +20,7 @@ registerForm.addEventListener("submit", async (e) => {
     submitBtn.classList.add("loading");
     submitBtn.disabled = true;
 
-    const response = await fetch("http://localhost:3000/api/register", {
+    const response = await fetch("https://nft-040z.onrender.com/api/register", {
       method: "POST",
       headers: {
         Accept: "application/json",

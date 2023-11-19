@@ -51,7 +51,9 @@ function showLoader(isLoaded) {
 async function getArtist(id) {
   try {
     showLoader(true);
-    const response = await fetch(`http://localhost:3000/api/creators/${id}`);
+    const response = await fetch(
+      `https://nft-040z.onrender.com/api/creators/${id}`
+    );
 
     if (!response.ok) {
       throw new Error(`Error: ${response.status}`);

@@ -32,7 +32,7 @@ function fetchNfts(skip) {
   loadMoreButton.disabled = true;
   appendLoadingCards();
 
-  fetch(`http://localhost:3000/api/nfts`, {
+  fetch(`https://nft-040z.onrender.com/api/nfts`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -77,7 +77,7 @@ function fetchNftsforString(skip, searchString) {
 
   appendLoadingCards();
 
-  fetch(`http://localhost:3000/api/nfts`, {
+  fetch(`https://nft-040z.onrender.com/api/nfts`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

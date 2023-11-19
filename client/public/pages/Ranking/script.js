@@ -67,7 +67,7 @@ sortVolume.addEventListener("click", () => {
 
 async function getArtists() {
   try {
-    const response = await fetch(`http://localhost:3000/api/creators/`);
+    const response = await fetch(`https://nft-040z.onrender.com/api/creators/`);
     const data = await response.json();
     skeletonRows.style.display = "none";
 
@@ -83,7 +83,7 @@ async function artistDelete(artistId, artistElement) {
   if (confirm(`Are you sure to delete artist with id ${artistId}`)) {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/creators/${artistId}`,
+        `https://nft-040z.onrender.com/api/creators/${artistId}`,
         {
           method: "DELETE",
         }
@@ -174,12 +174,15 @@ function fillArtistPage(artists) {
       )}k</p>
       <img class="top-creators-delete" src="../../imgs/icons/trash.svg" alt="">
     </div>`;
-   const host=person.getElementsByClassName("top-creators__ranking-list__items__item__info__user")[0];
-   host.addEventListener("click", () => {
-    window.open(
-      `http://127.0.0.1:5500/client/public/pages/Artist/?artist_id=${artist.id}`,
-      "_self"
-    )})
+    const host = person.getElementsByClassName(
+      "top-creators__ranking-list__items__item__info__user"
+    )[0];
+    host.addEventListener("click", () => {
+      window.open(
+        `http://127.0.0.1:5500/client/public/pages/Artist/?artist_id=${artist.id}`,
+        "_self"
+      );
+    });
     const deleteButton = person.getElementsByClassName(
       "top-creators-delete"
     )[0];
