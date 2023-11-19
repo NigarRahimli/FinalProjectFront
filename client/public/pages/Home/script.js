@@ -39,10 +39,7 @@ function fillCard(data) {
   data.forEach((c) => {
     let card = document.createElement("a");
     card.addEventListener("click", () => {
-      window.open(
-        `http://127.0.0.1:5500/client/public/pages/Artist/?artist_id=${c.id}`,
-        "_self"
-      );
+      window.open(`../Artist/?artist_id=${c.id}`, "_self");
     });
     card.className = "top__cards__card";
     card.innerHTML += `

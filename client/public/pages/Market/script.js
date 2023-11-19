@@ -142,7 +142,7 @@ function fillArtistPage(data) {
     host.style.cursor = "pointer";
     host.addEventListener("click", () => {
       window.open(
-        `http://127.0.0.1:5500/client/public/pages/Artist/?artist_id=${nft.creator.id}`,
+        `../Artist/?artist_id=${nft.creator.id}`,
         "_self"
       );
     });

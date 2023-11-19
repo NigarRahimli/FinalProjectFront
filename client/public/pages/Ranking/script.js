@@ -178,10 +178,7 @@ function fillArtistPage(artists) {
       "top-creators__ranking-list__items__item__info__user"
     )[0];
     host.addEventListener("click", () => {
-      window.open(
-        `http://127.0.0.1:5500/client/public/pages/Artist/?artist_id=${artist.id}`,
-        "_self"
-      );
+      window.open(`../Artist/?artist_id=${artist.id}`, "_self");
     });
     const deleteButton = person.getElementsByClassName(
       "top-creators-delete"
